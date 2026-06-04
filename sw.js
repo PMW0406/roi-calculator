@@ -1,4 +1,4 @@
-const CACHE = "wontech-roi-v7";
+const CACHE = "wontech-roi-v8";
 const ASSETS = [
   "/roi-calculator/",
   "/roi-calculator/index.html",

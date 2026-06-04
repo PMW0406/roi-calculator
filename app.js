@@ -256,8 +256,8 @@ function calcLaser() {
     result,
     "Laser 결과",
     [
-      { label: "원금회수일", value: day(paybackDays), primary: true },
-      { label: "월 패키지 매출", value: won(packagePrice), primary: true }
+      { label: "일 패키지 매출", value: won(packagePrice), primary: true },
+      { label: "원금회수일", value: day(paybackDays), primary: true }
     ],
     ""
   );
