@@ -393,11 +393,11 @@ input[readonly]:focus {
   }
 
   .kpi-value {
-    font-size: min(1.75rem, 4.3vw);
+    font-size: 1.6rem;
   }
 
   .result-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
   }
 
