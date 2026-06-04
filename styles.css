@@ -334,7 +334,7 @@ input[readonly]:focus {
 
 @media (max-width: 639px) {
   body {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .app-shell {
@@ -347,7 +347,7 @@ input[readonly]:focus {
   }
 
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
   }
 
   .hero-badge {
@@ -360,8 +360,8 @@ input[readonly]:focus {
   }
 
   .tab {
-    font-size: 17px;
-    padding: 16px 10px;
+    font-size: 18px;
+    padding: 17px 10px;
   }
 
   .panel {
@@ -369,7 +369,7 @@ input[readonly]:focus {
   }
 
   h2 {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 
   .sub {
@@ -382,8 +382,8 @@ input[readonly]:focus {
   }
 
   input, select {
-    min-height: 56px;
-    font-size: 18px;
+    min-height: 58px;
+    font-size: 19px;
     padding: 14px 14px;
   }
 
@@ -393,7 +393,7 @@ input[readonly]:focus {
   }
 
   .kpi-value {
-    font-size: 1.75rem;
+    font-size: min(1.75rem, 4.3vw);
   }
 
   .result-grid {
@@ -407,9 +407,5 @@ input[readonly]:focus {
 }
 
 @media (max-width: 400px) {
-  .result-grid {
-    grid-template-columns: 1fr;
-  }
-
   .hero-badge { display: none; }
 }
