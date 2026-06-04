@@ -40,7 +40,7 @@
           <label>장비명
             <select name="equipmentName" id="rf-equipment" required></select>
           </label>
-          <label>패키지명
+          <label id="rf-package-row">패키지명
             <select name="packageName" id="rf-package" required></select>
           </label>
           <label>패키지 가격(원)
@@ -89,7 +89,7 @@
     </section>
   </main>
 
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js");

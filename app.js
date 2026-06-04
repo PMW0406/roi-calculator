@@ -141,9 +141,22 @@ function populateRFPackageOptions() {
   }
 }
 
+function setAllRFFieldsEditable() {
+  const form = document.getElementById("rf-form");
+  const packageRow = document.getElementById("rf-package-row");
+
+  packageRow.style.display = "none";
+  ["packagePrice", "consumableCount", "shotsPerTreatment", "tipShots", "pricePerTreatment", "treatmentsPerDay"].forEach((name) => {
+    form[name].readOnly = false;
+    form[name].value = "";
+  });
+  calcRF();
+}
+
 function bindRFPackageSelection() {
   const equipmentSelect = document.getElementById("rf-equipment");
   const packageSelect = document.getElementById("rf-package");
+  const packageRow = document.getElementById("rf-package-row");
 
   equipmentSelect.innerHTML = "";
   Object.keys(RF_PACKAGE_DATA).forEach((equipmentName) => {
@@ -153,14 +166,26 @@ function bindRFPackageSelection() {
     equipmentSelect.appendChild(option);
   });
 
-  equipmentSelect.addEventListener("change", populateRFPackageOptions);
+  const customEquipOption = document.createElement("option");
+  customEquipOption.value = "custom";
+  customEquipOption.textContent = "직접 입력";
+  equipmentSelect.appendChild(customEquipOption);
+
+  equipmentSelect.addEventListener("change", () => {
+    if (equipmentSelect.value === "custom") {
+      setAllRFFieldsEditable();
+    } else {
+      packageRow.style.display = "";
+      populateRFPackageOptions();
+    }
+  });
+
   packageSelect.addEventListener("change", () => {
     const packages = RF_PACKAGE_DATA[equipmentSelect.value] || [];
     if (packageSelect.value === "custom") {
       setRFDefaults({ isCustom: true });
       return;
     }
-
     const selectedPackage = packages[number(packageSelect.value)] || packages[0];
     if (selectedPackage) {
       setRFDefaults(selectedPackage);
