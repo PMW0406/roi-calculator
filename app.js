@@ -222,9 +222,9 @@ function calcRF() {
     "RF/HIFU 결과",
     [
       { label: "원금회수일", value: day(paybackDays), primary: true },
-      { label: "순수익", value: won(pureProfit), primary: true },
       { label: "총 시술 횟수", value: `${Math.round(totalTreatments).toLocaleString("ko-KR")}회` },
-      { label: "총 매출", value: won(totalRevenue) }
+      { label: "총 매출", value: won(totalRevenue) },
+      { label: "순수익", value: won(pureProfit), primary: true }
     ],
     ""
   );
