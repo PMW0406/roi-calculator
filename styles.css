@@ -334,12 +334,12 @@ input[readonly]:focus {
 
 @media (max-width: 639px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .app-shell {
     width: 96vw;
-    margin: 16px auto 40px;
+    margin: 14px auto 40px;
   }
 
   .hero {
@@ -347,12 +347,12 @@ input[readonly]:focus {
   }
 
   .hero-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .hero-badge {
-    font-size: 11px;
-    padding: 4px 10px;
+    font-size: 12px;
+    padding: 5px 11px;
   }
 
   .tabs {
@@ -360,8 +360,8 @@ input[readonly]:focus {
   }
 
   .tab {
-    font-size: 15px;
-    padding: 14px 10px;
+    font-size: 17px;
+    padding: 16px 10px;
   }
 
   .panel {
@@ -369,31 +369,31 @@ input[readonly]:focus {
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
   }
 
   .sub {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   label {
-    font-size: 13px;
+    font-size: 14px;
     gap: 8px;
   }
 
   input, select {
-    min-height: 52px;
-    font-size: 16px;
-    padding: 12px 14px;
+    min-height: 56px;
+    font-size: 18px;
+    padding: 14px 14px;
   }
 
   .kpi-label {
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 6px;
   }
 
   .kpi-value {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   .result-grid {
