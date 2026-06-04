@@ -288,19 +288,57 @@ function calcLaser() {
   );
 }
 
+function calcInstallment() {
+  const form = document.getElementById("installment-form");
+  const result = document.getElementById("installment-result");
+
+  const equipmentPrice = number(form.equipmentPrice.value);
+  const installmentMonths = number(form.installmentMonths.value);
+  const annualRate = number(form.annualRate.value);
+  const pricePerTreatment = number(form.pricePerTreatment.value);
+  const workingDays = number(form.workingDays.value);
+
+  if (equipmentPrice <= 0 || pricePerTreatment <= 0 || workingDays <= 0) {
+    renderResult(result, "할부/리스 결과", [], "장비 가격, 시술단가, 영업일수는 0보다 커야 합니다.");
+    return;
+  }
+
+  let monthlyPayment;
+  if (annualRate <= 0) {
+    monthlyPayment = equipmentPrice / installmentMonths;
+  } else {
+    const r = annualRate / 100 / 12;
+    monthlyPayment = equipmentPrice * r / (1 - Math.pow(1 + r, -installmentMonths));
+  }
+
+  const totalRepayment = monthlyPayment * installmentMonths;
+  const monthlyTreatmentsNeeded = Math.ceil(monthlyPayment / pricePerTreatment);
+  const dailyTreatmentsNeeded = Math.ceil(monthlyTreatmentsNeeded / workingDays);
+
+  renderResult(result, "할부/리스 결과", [
+    { label: "월 할부금", value: won(monthlyPayment), primary: true },
+    { label: "하루 필요 시술 횟수", value: `${dailyTreatmentsNeeded}회`, primary: true },
+    { label: "월 필요 시술 횟수", value: `${monthlyTreatmentsNeeded}회` },
+    { label: "총 상환액", value: won(totalRepayment) }
+  ], "");
+}
+
 function bindTabs() {
   const tabs = document.querySelectorAll(".tab");
-  const rfPanel = document.getElementById("panel-rf");
-  const laserPanel = document.getElementById("panel-laser");
+  const panels = {
+    rf: document.getElementById("panel-rf"),
+    laser: document.getElementById("panel-laser"),
+    installment: document.getElementById("panel-installment")
+  };
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const target = tab.dataset.tab;
       tabs.forEach((t) => t.classList.remove("is-active"));
       tab.classList.add("is-active");
-
-      rfPanel.classList.toggle("is-active", target === "rf");
-      laserPanel.classList.toggle("is-active", target === "laser");
+      Object.entries(panels).forEach(([key, panel]) => {
+        panel.classList.toggle("is-active", key === target);
+      });
     });
   });
 }
@@ -308,6 +346,7 @@ function bindTabs() {
 function bindInputs() {
   document.getElementById("rf-form").addEventListener("input", calcRF);
   document.getElementById("laser-form").addEventListener("input", calcLaser);
+  document.getElementById("installment-form").addEventListener("input", calcInstallment);
 }
 
 bindTabs();
@@ -316,3 +355,4 @@ bindInputs();
 bindPriceInputs();
 calcRF();
 calcLaser();
+calcInstallment();

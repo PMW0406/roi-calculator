@@ -30,6 +30,7 @@
     <section class="tabs" aria-label="ROI 계산기 종류 선택">
       <button class="tab is-active" data-tab="rf" type="button">RF/HIFU</button>
       <button class="tab" data-tab="laser" type="button">Laser</button>
+      <button class="tab" data-tab="installment" type="button">할부/리스</button>
     </section>
 
     <section class="panel-wrap">
@@ -86,10 +87,41 @@
 
         <div class="result-box" id="laser-result" aria-live="polite"></div>
       </article>
+
+      <article class="panel" id="panel-installment">
+        <div class="panel-header">
+          <h2>할부/리스 계산기</h2>
+          <p class="sub">월 할부금을 커버하려면 하루 몇 회 시술해야 하는지 계산합니다.</p>
+        </div>
+        <form id="installment-form" class="form-grid" novalidate>
+          <label>장비 가격(원)
+            <input name="equipmentPrice" type="text" inputmode="numeric" value="150,000,000" required data-price>
+          </label>
+          <label>할부 개월수
+            <select name="installmentMonths">
+              <option value="12">12개월</option>
+              <option value="24" selected>24개월</option>
+              <option value="36">36개월</option>
+              <option value="48">48개월</option>
+              <option value="60">60개월</option>
+            </select>
+          </label>
+          <label>연 이자율(%)
+            <input name="annualRate" type="number" min="0" max="30" step="0.1" value="0">
+          </label>
+          <label>1회 시술단가(원)
+            <input name="pricePerTreatment" type="text" inputmode="numeric" value="300,000" required data-price>
+          </label>
+          <label>월 영업일수(일)
+            <input name="workingDays" type="number" min="1" max="31" step="1" value="25" required>
+          </label>
+        </form>
+        <div class="result-box" id="installment-result" aria-live="polite"></div>
+      </article>
     </section>
   </main>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js");
