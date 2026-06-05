@@ -76,6 +76,43 @@ body {
   color: var(--ink);
 }
 
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.lang-switcher {
+  display: flex;
+  gap: 4px;
+}
+
+.lang-btn {
+  border: 1px solid var(--line);
+  background: transparent;
+  border-radius: 99px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+  letter-spacing: .03em;
+}
+
+.lang-btn:hover {
+  color: var(--ink-2);
+  border-color: rgba(255,255,255,.2);
+}
+
+.lang-btn.is-active {
+  background: var(--brand-dim);
+  border-color: rgba(255,90,10,.4);
+  color: #ffd0b5;
+}
+
 .hero-badge {
   font-size: 11px;
   font-weight: 700;
@@ -87,7 +124,6 @@ body {
   border-radius: 99px;
   padding: 4px 12px;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
 /* ── Tabs ───────────────────────────────────────── */

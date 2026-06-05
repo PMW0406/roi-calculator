@@ -1,9 +1,10 @@
-const CACHE = "wontech-roi-v13";
+const CACHE = "wontech-roi-v15";
 const ASSETS = [
   "/roi-calculator/",
   "/roi-calculator/index.html",
   "/roi-calculator/styles.css",
   "/roi-calculator/app.js",
+  "/roi-calculator/lang.js",
   "/roi-calculator/speech.js",
   "/roi-calculator/manifest.json",
   "/roi-calculator/KakaoTalk_20260413_161622234_01.png"

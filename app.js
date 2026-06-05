@@ -20,17 +20,20 @@ function bindPriceInputs() {
 }
 
 function won(v) {
-  return `${Math.round(v).toLocaleString("ko-KR")}원`;
-}
-
-function month(v) {
-  if (!Number.isFinite(v) || v <= 0) return "회수 불가";
-  return `${v.toFixed(1)}개월`;
+  const lang = window.CURRENT_LANG || "ko";
+  return (TRANSLATIONS[lang] || TRANSLATIONS.ko).fmt_won(v);
 }
 
 function day(v) {
-  if (!Number.isFinite(v) || v <= 0) return "회수 불가";
-  return `${v.toFixed(1)}일`;
+  const lang = window.CURRENT_LANG || "ko";
+  const ui   = TRANSLATIONS[lang] || TRANSLATIONS.ko;
+  if (!Number.isFinite(v) || v <= 0) return ui.fmt_impossible;
+  return ui.fmt_days(v);
+}
+
+function times(v) {
+  const lang = window.CURRENT_LANG || "ko";
+  return (TRANSLATIONS[lang] || TRANSLATIONS.ko).fmt_times(v);
 }
 
 function monthlyNetProfit(monthlyRevenue, monthlyCost) {
@@ -228,12 +231,12 @@ function calcRF() {
   const tipShots = number(form.tipShots.value);
 
   if (packagePrice <= 0) {
-    renderResult(result, "RF/HIFU 결과", [], "패키지 가격이 0보다 커야 합니다.");
+    renderResult(result, t("res_rf_title"), [], t("err_packagePrice"));
     return;
   }
 
   if (consumableCount <= 0 || shotsPerTreatment <= 0 || pricePerTreatment <= 0 || treatmentsPerDay <= 0 || tipShots <= 0) {
-    renderResult(result, "RF/HIFU 결과", [], "모든 입력값은 0보다 커야 합니다.");
+    renderResult(result, t("res_rf_title"), [], t("err_allPositive"));
     return;
   }
 
@@ -246,10 +249,10 @@ function calcRF() {
     result,
     "RF/HIFU 결과",
     [
-      { label: "원금회수일", value: day(paybackDays), primary: true },
-      { label: "총 시술 횟수", value: `${Math.round(totalTreatments).toLocaleString("ko-KR")}회` },
-      { label: "총 매출", value: won(totalRevenue) },
-      { label: "순수익", value: won(pureProfit), primary: true }
+      { label: t("res_paybackDays"),     value: day(paybackDays),   primary: true },
+      { label: t("res_totalTreatments"), value: times(totalTreatments) },
+      { label: t("res_totalRevenue"),    value: won(totalRevenue) },
+      { label: t("res_pureProfit"),      value: won(pureProfit),    primary: true }
     ],
     ""
   );
@@ -268,12 +271,12 @@ function calcLaser() {
   const paybackDays = equipmentPrice / packagePrice;
 
   if (equipmentPrice <= 0) {
-    renderResult(result, "Laser 결과", [], "장비 가격이 0보다 커야 합니다.");
+    renderResult(result, t("res_laser_title"), [], t("err_equipmentPrice"));
     return;
   }
 
   if (sessionUnitPrice <= 0 || ticketingCount <= 0 || customerCount <= 0) {
-    renderResult(result, "Laser 결과", [], "시술단가, 티케팅수, 고객수는 0보다 커야 합니다.");
+    renderResult(result, t("res_laser_title"), [], t("err_laserInputs"));
     return;
   }
 
@@ -281,8 +284,8 @@ function calcLaser() {
     result,
     "Laser 결과",
     [
-      { label: "일 패키지 매출", value: won(packagePrice), primary: true },
-      { label: "원금회수일", value: day(paybackDays), primary: true }
+      { label: t("res_dailyRevenue"), value: won(packagePrice), primary: true },
+      { label: t("res_paybackDays"), value: day(paybackDays),   primary: true }
     ],
     ""
   );
