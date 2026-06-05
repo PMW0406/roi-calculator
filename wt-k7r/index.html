@@ -27,10 +27,11 @@
       <span class="hero-badge">Confidential</span>
     </header>
 
-    <section class="tabs" aria-label="ROI 계산기 종류 선택">
+    <section class="tabs tabs--4" aria-label="ROI 계산기 종류 선택">
       <button class="tab is-active" data-tab="rf" type="button">RF/HIFU</button>
       <button class="tab" data-tab="laser" type="button">Laser</button>
       <button class="tab" data-tab="speech" type="button">Sales</button>
+      <button class="tab" data-tab="delivery" type="button">납품조회</button>
     </section>
 
     <section class="panel-wrap">
@@ -99,18 +100,50 @@
           <div id="speech-detail-content"></div>
         </div>
       </article>
+
+      <article class="panel" id="panel-delivery">
+        <div class="panel-header">
+          <h2>납품처 조회</h2>
+          <p class="sub">납품처명, 제품코드, 시리얼 번호로 검색하세요. (2016~현재)</p>
+        </div>
+        <p id="delivery-loading" style="color:var(--ink-3);font-size:14px;margin-top:8px;">데이터 불러오는 중...</p>
+        <div id="delivery-search-wrap">
+          <input id="delivery-input" type="search" placeholder="병원명 / 제품코드 / 시리얼 번호 입력..." autocomplete="off">
+          <div id="delivery-results"></div>
+        </div>
+      </article>
     </section>
   </main>
 
   <script>window.FIXED_LANG = "ko";</script>
   <script src="../lang.js?v=1"></script>
   <script src="../speech.js?v=2"></script>
-  <script src="../app.js?v=12"></script>
+  <script src="../app.js?v=13"></script>
+  <script src="delivery.js?v=1"></script>
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("sw.js");
     }
+    // 4탭 연동 (delivery 추가)
+    (function() {
+      const panels = {
+        rf: document.getElementById("panel-rf"),
+        laser: document.getElementById("panel-laser"),
+        speech: document.getElementById("panel-speech"),
+        delivery: document.getElementById("panel-delivery")
+      };
+      document.querySelectorAll(".tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".tab").forEach(t => t.classList.remove("is-active"));
+          tab.classList.add("is-active");
+          Object.entries(panels).forEach(([key, panel]) => {
+            if (panel) panel.classList.toggle("is-active", key === tab.dataset.tab);
+          });
+        });
+      });
+    })();
     initSpeech();
+    initDelivery();
   </script>
 </body>
 </html>

@@ -363,6 +363,109 @@ input[readonly]:focus {
   font-weight: 600;
 }
 
+/* ── 4-tab layout ──────────────────────────────── */
+.tabs--4 {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ── Delivery search ────────────────────────────── */
+#delivery-input {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  color: var(--ink);
+  background: rgba(255,255,255,.04);
+  margin-bottom: 16px;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+#delivery-input:focus {
+  outline: none;
+  border-color: rgba(255,90,10,.55);
+  box-shadow: 0 0 0 3px rgba(255,90,10,.15);
+}
+
+.delivery-more {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+.delivery-empty {
+  color: var(--ink-3);
+  font-size: 14px;
+  text-align: center;
+  padding: 32px 0;
+}
+
+.d-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+
+.d-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 600px;
+}
+
+.d-table th {
+  background: var(--surface-hi);
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.d-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  color: var(--ink-2);
+  vertical-align: middle;
+}
+
+.d-table tr:last-child td { border-bottom: none; }
+.d-table tr:hover td { background: rgba(255,255,255,.03); }
+
+.d-serial {
+  font-family: "Manrope", monospace;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.d-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 99px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.d-badge--ok   { background: rgba(52,211,154,.15); color: #34d39a; }
+.d-badge--swap { background: rgba(251,191,36,.15);  color: #fbbf24; }
+.d-badge--etc  { background: rgba(148,163,184,.12); color: #94a3b8; }
+
+.d-table mark {
+  background: rgba(255,90,10,.3);
+  color: var(--ink);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
 /* ── Speech ─────────────────────────────────────── */
 .hidden { display: none !important; }
 
