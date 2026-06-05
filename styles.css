@@ -498,11 +498,42 @@ input[readonly]:focus {
 .tbl-wontech { font-weight: 800; }
 .tbl-rival { color: var(--ink-3); }
 
-.speech-box {
+.speech-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.speech-para {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-2);
+  padding-left: 14px;
+  border-left: 2px solid var(--line);
+}
+
+.speech-para strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.speech-closing {
   border: 1px solid;
   border-radius: var(--radius-sm);
-  padding: 16px;
-  position: relative;
+  padding: 14px 16px;
+  margin-top: 4px;
+}
+
+.speech-closing p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.speech-closing strong {
+  color: var(--ink);
+  font-weight: 700;
 }
 
 .speech-dot {
@@ -511,12 +542,6 @@ input[readonly]:focus {
   height: 7px;
   border-radius: 50%;
   margin-bottom: 10px;
-}
-
-.speech-text {
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--ink-2);
 }
 
 /* Closing */
