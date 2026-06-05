@@ -365,7 +365,13 @@ input[readonly]:focus {
 
 /* ── 4-tab layout ──────────────────────────────── */
 .tabs--4 {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* 모바일: 2×2 */
+}
+
+@media (min-width: 640px) {
+  .tabs--4 {
+    grid-template-columns: repeat(4, 1fr); /* PC: 1줄 4탭 */
+  }
 }
 
 /* ── Delivery search ────────────────────────────── */
@@ -812,4 +818,31 @@ input[readonly]:focus {
 
 @media (max-width: 400px) {
   .hero-badge { display: none; }
+}
+
+/* ── PC 전용 (1024px+) ──────────────────────────── */
+@media (min-width: 1024px) {
+  .app-shell {
+    width: min(1100px, 88vw);
+  }
+
+  .panel {
+    padding: 32px 36px;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .result-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero {
+    padding: 28px 36px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
 }
