@@ -36,8 +36,8 @@
         <h2>RF/HIFU ROI 分析</h2>
         <p class="sub">输入设备规格和价格，计算ROI投资回报。</p>
         <form id="rf-form" class="form-grid" novalidate>
-          <label>套餐价格（韩元）
-            <input name="packagePrice" type="text" inputmode="numeric" placeholder="例：44,000,000" required data-price>
+          <label>套餐价格（人民币）
+            <input name="packagePrice" type="text" inputmode="numeric" placeholder="例：230,000" required data-price>
           </label>
           <label>耗材数量（个）
             <input name="consumableCount" type="number" min="0" step="1" placeholder="例：90" required>
@@ -45,8 +45,8 @@
           <label>单次发数
             <input name="shotsPerTreatment" type="number" min="1" step="1" placeholder="例：600" required>
           </label>
-          <label>单次治疗价格（韩元）
-            <input name="pricePerTreatment" type="text" inputmode="numeric" placeholder="例：1,200,000" required data-price>
+          <label>单次治疗价格（人民币）
+            <input name="pricePerTreatment" type="text" inputmode="numeric" placeholder="例：7,000" required data-price>
           </label>
           <label>每日治疗次数
             <input name="treatmentsPerDay" type="number" min="0" step="1" placeholder="例：3" required>
@@ -62,11 +62,11 @@
         <h2>激光 ROI 分析</h2>
         <p class="sub">基于每日患者套餐营收计算投资回收期。</p>
         <form id="laser-form" class="form-grid" novalidate>
-          <label>设备价格（韩元）
-            <input name="equipmentPrice" type="text" inputmode="numeric" placeholder="例：150,000,000" required data-price>
+          <label>设备价格（人民币）
+            <input name="equipmentPrice" type="text" inputmode="numeric" placeholder="例：800,000" required data-price>
           </label>
-          <label>单次治疗价格（韩元）
-            <input name="sessionUnitPrice" type="text" inputmode="numeric" placeholder="例：300,000" required data-price>
+          <label>单次治疗价格（人民币）
+            <input name="sessionUnitPrice" type="text" inputmode="numeric" placeholder="例：1,500" required data-price>
           </label>
           <label>套餐次数
             <input name="ticketingCount" type="number" min="0" step="1" placeholder="例：3" required>

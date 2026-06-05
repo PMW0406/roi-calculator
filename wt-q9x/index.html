@@ -36,8 +36,8 @@
         <h2>RF/HIFU ROI Analysis</h2>
         <p class="sub">Enter your device specs and pricing to calculate ROI.</p>
         <form id="rf-form" class="form-grid" novalidate>
-          <label>Package Price (KRW)
-            <input name="packagePrice" type="text" inputmode="numeric" placeholder="e.g. 44,000,000" required data-price>
+          <label>Package Price (USD)
+            <input name="packagePrice" type="text" inputmode="numeric" placeholder="e.g. 30,000" required data-price>
           </label>
           <label>Consumables Included
             <input name="consumableCount" type="number" min="0" step="1" placeholder="e.g. 90" required>
@@ -45,8 +45,8 @@
           <label>Shots / Treatment
             <input name="shotsPerTreatment" type="number" min="1" step="1" placeholder="e.g. 600" required>
           </label>
-          <label>Price / Treatment (KRW)
-            <input name="pricePerTreatment" type="text" inputmode="numeric" placeholder="e.g. 1,200,000" required data-price>
+          <label>Price / Treatment (USD)
+            <input name="pricePerTreatment" type="text" inputmode="numeric" placeholder="e.g. 1,000" required data-price>
           </label>
           <label>Treatments / Day
             <input name="treatmentsPerDay" type="number" min="0" step="1" placeholder="e.g. 3" required>
@@ -62,11 +62,11 @@
         <h2>Laser ROI Analysis</h2>
         <p class="sub">Calculates payback period based on daily package revenue.</p>
         <form id="laser-form" class="form-grid" novalidate>
-          <label>Equipment Price (KRW)
-            <input name="equipmentPrice" type="text" inputmode="numeric" placeholder="e.g. 150,000,000" required data-price>
+          <label>Equipment Price (USD)
+            <input name="equipmentPrice" type="text" inputmode="numeric" placeholder="e.g. 110,000" required data-price>
           </label>
-          <label>Price / Session (KRW)
-            <input name="sessionUnitPrice" type="text" inputmode="numeric" placeholder="e.g. 300,000" required data-price>
+          <label>Price / Session (USD)
+            <input name="sessionUnitPrice" type="text" inputmode="numeric" placeholder="e.g. 200" required data-price>
           </label>
           <label>Sessions / Package
             <input name="ticketingCount" type="number" min="0" step="1" placeholder="e.g. 3" required>
