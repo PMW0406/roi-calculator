@@ -328,7 +328,7 @@ function bindTabs() {
   const panels = {
     rf: document.getElementById("panel-rf"),
     laser: document.getElementById("panel-laser"),
-    installment: document.getElementById("panel-installment")
+    speech: document.getElementById("panel-speech")
   };
 
   tabs.forEach((tab) => {
@@ -346,7 +346,6 @@ function bindTabs() {
 function bindInputs() {
   document.getElementById("rf-form").addEventListener("input", calcRF);
   document.getElementById("laser-form").addEventListener("input", calcLaser);
-  document.getElementById("installment-form").addEventListener("input", calcInstallment);
 }
 
 bindTabs();
@@ -355,4 +354,3 @@ bindInputs();
 bindPriceInputs();
 calcRF();
 calcLaser();
-calcInstallment();
