@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="150" viewBox="0 0 540 150" role="img" aria-labelledby="title desc">
+  <title id="title">Wontech Logo</title>
+  <desc id="desc">Wontech brand mark with orange wordmark and connected block symbol.</desc>
+  <defs>
+    <style>
+      .brand { fill: #ff5a0a; }
+      .word { font-family: 'Noto Sans KR', 'Pretendard', sans-serif; font-size: 86px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <g transform="translate(0,18)">
+    <rect class="brand" x="0" y="18" width="30" height="30" rx="7" />
+    <rect class="brand" x="58" y="18" width="30" height="30" rx="7" />
+    <rect class="brand" x="116" y="18" width="30" height="30" rx="7" />
+
+    <rect class="brand" x="58" y="48" width="30" height="30" rx="7" />
+    <rect class="brand" x="58" y="78" width="30" height="30" rx="7" />
+
+    <rect class="brand" x="0" y="48" width="146" height="30" rx="10" />
+  </g>
+
+  <text class="brand word" x="168" y="112">wontech</text>
+</svg>

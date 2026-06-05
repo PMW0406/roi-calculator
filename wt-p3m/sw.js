@@ -1,7 +1,7 @@
-const CACHE = "wontech-roi-zh-v1";
+const CACHE = "wontech-roi-zh-v2";
 const ASSETS = [
-  "/roi-calculator/zh/",
-  "/roi-calculator/zh/index.html",
+  "/roi-calculator/wt-p3m/",
+  "/roi-calculator/wt-p3m/index.html",
   "/roi-calculator/styles.css",
   "/roi-calculator/lang.js",
   "/roi-calculator/speech.js",
