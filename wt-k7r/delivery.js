@@ -35,11 +35,13 @@ function bindDeliverySearch() {
 function searchDelivery(q) {
   if (!DELIVERY_DATA) return [];
   const lower = q.toLowerCase();
-  return DELIVERY_DATA.filter(r =>
-    (r.hospital && r.hospital.includes(q)) ||
-    (r.serial && r.serial.toLowerCase().includes(lower)) ||
-    (r.product && r.product.toLowerCase().includes(lower))
-  );
+  return DELIVERY_DATA
+    .filter(r =>
+      (r.hospital && r.hospital.includes(q)) ||
+      (r.serial && r.serial.toLowerCase().includes(lower)) ||
+      (r.product && r.product.toLowerCase().includes(lower))
+    )
+    .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 }
 
 function highlight(text, q) {
