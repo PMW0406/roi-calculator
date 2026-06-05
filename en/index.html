@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wontech ROI Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=7">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080c15">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ROI Calc">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="brand-row" aria-label="Wontech Brand">
+        <img class="brand-logo" src="../KakaoTalk_20260413_161622234_01.png" alt="Wontech Logo">
+        <p class="hero-title">ROI Simulator</p>
+      </div>
+      <div class="hero-right">
+        <span class="hero-badge">Confidential</span>
+        <div class="lang-switcher">
+          <a class="lang-btn" href="../" data-lang="ko">한</a>
+          <a class="lang-btn is-active" href="." data-lang="en">EN</a>
+          <a class="lang-btn" href="../zh/" data-lang="zh">中</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="tabs" aria-label="Calculator type">
+      <button class="tab is-active" data-tab="rf" type="button">RF/HIFU</button>
+      <button class="tab" data-tab="laser" type="button">Laser</button>
+      <button class="tab" data-tab="speech" type="button">Sales</button>
+    </section>
+
+    <section class="panel-wrap">
+      <article class="panel is-active" id="panel-rf">
+        <h2>RF/HIFU ROI Analysis</h2>
+        <p class="sub">Enter your device specs and pricing to calculate ROI.</p>
+        <form id="rf-form" class="form-grid" novalidate>
+          <label>Package Price (KRW)
+            <input name="packagePrice" type="text" inputmode="numeric" placeholder="e.g. 44,000,000" required data-price>
+          </label>
+          <label>Consumables Included
+            <input name="consumableCount" type="number" min="0" step="1" placeholder="e.g. 90" required>
+          </label>
+          <label>Shots / Treatment
+            <input name="shotsPerTreatment" type="number" min="1" step="1" placeholder="e.g. 600" required>
+          </label>
+          <label>Price / Treatment (KRW)
+            <input name="pricePerTreatment" type="text" inputmode="numeric" placeholder="e.g. 1,200,000" required data-price>
+          </label>
+          <label>Treatments / Day
+            <input name="treatmentsPerDay" type="number" min="0" step="1" placeholder="e.g. 3" required>
+          </label>
+          <label>Tip / Cartridge Total Shots
+            <input name="tipShots" type="number" min="1" step="1" placeholder="e.g. 900" required>
+          </label>
+        </form>
+        <div class="result-box" id="rf-result" aria-live="polite"></div>
+      </article>
+
+      <article class="panel" id="panel-laser">
+        <h2>Laser ROI Analysis</h2>
+        <p class="sub">Calculates payback period based on daily package revenue.</p>
+        <form id="laser-form" class="form-grid" novalidate>
+          <label>Equipment Price (KRW)
+            <input name="equipmentPrice" type="text" inputmode="numeric" placeholder="e.g. 150,000,000" required data-price>
+          </label>
+          <label>Price / Session (KRW)
+            <input name="sessionUnitPrice" type="text" inputmode="numeric" placeholder="e.g. 300,000" required data-price>
+          </label>
+          <label>Sessions / Package
+            <input name="ticketingCount" type="number" min="0" step="1" placeholder="e.g. 3" required>
+          </label>
+          <label>Patients / Day
+            <input name="customerCount" type="number" min="0" step="1" placeholder="e.g. 5" required>
+          </label>
+        </form>
+        <div class="result-box" id="laser-result" aria-live="polite"></div>
+      </article>
+
+      <article class="panel" id="panel-speech">
+        <div id="speech-grid-view">
+          <div class="panel-header">
+            <h2>Sales Speech</h2>
+            <p class="sub">Select a device to view competitor comparison and sales pitch.</p>
+          </div>
+          <div class="device-grid" id="device-grid"></div>
+        </div>
+        <div id="speech-detail-view" class="hidden">
+          <button class="back-btn" id="back-btn" type="button">← Device List</button>
+          <div id="speech-detail-content"></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>window.FIXED_LANG = "en";</script>
+  <script src="../lang.js?v=1"></script>
+  <script src="../speech.js?v=2"></script>
+  <script src="../app-intl.js?v=1"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+    initSpeech();
+  </script>
+</body>
+</html>

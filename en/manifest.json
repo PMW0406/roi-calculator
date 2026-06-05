@@ -1,0 +1,14 @@
+{
+  "name": "Wontech ROI Simulator",
+  "short_name": "ROI Calc",
+  "description": "Wontech Sales ROI Calculator",
+  "start_url": "/roi-calculator/en/",
+  "scope": "/roi-calculator/en/",
+  "display": "standalone",
+  "background_color": "#080c15",
+  "theme_color": "#080c15",
+  "icons": [
+    { "src": "../icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "../icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -100,6 +100,8 @@ body {
   cursor: pointer;
   transition: background .18s, color .18s, border-color .18s;
   letter-spacing: .03em;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .lang-btn:hover {

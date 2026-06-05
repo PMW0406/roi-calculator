@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原泰克 ROI 计算器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=7">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#080c15">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ROI 计算器">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="brand-row" aria-label="Wontech Brand">
+        <img class="brand-logo" src="../KakaoTalk_20260413_161622234_01.png" alt="Wontech Logo">
+        <p class="hero-title">ROI 模拟器</p>
+      </div>
+      <div class="hero-right">
+        <span class="hero-badge">Confidential</span>
+        <div class="lang-switcher">
+          <a class="lang-btn" href="../" data-lang="ko">한</a>
+          <a class="lang-btn" href="../en/" data-lang="en">EN</a>
+          <a class="lang-btn is-active" href="." data-lang="zh">中</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="tabs" aria-label="计算器类型">
+      <button class="tab is-active" data-tab="rf" type="button">RF/HIFU</button>
+      <button class="tab" data-tab="laser" type="button">激光</button>
+      <button class="tab" data-tab="speech" type="button">销售话术</button>
+    </section>
+
+    <section class="panel-wrap">
+      <article class="panel is-active" id="panel-rf">
+        <h2>RF/HIFU ROI 分析</h2>
+        <p class="sub">输入设备规格和价格，计算ROI投资回报。</p>
+        <form id="rf-form" class="form-grid" novalidate>
+          <label>套餐价格（韩元）
+            <input name="packagePrice" type="text" inputmode="numeric" placeholder="例：44,000,000" required data-price>
+          </label>
+          <label>耗材数量（个）
+            <input name="consumableCount" type="number" min="0" step="1" placeholder="例：90" required>
+          </label>
+          <label>单次发数
+            <input name="shotsPerTreatment" type="number" min="1" step="1" placeholder="例：600" required>
+          </label>
+          <label>单次治疗价格（韩元）
+            <input name="pricePerTreatment" type="text" inputmode="numeric" placeholder="例：1,200,000" required data-price>
+          </label>
+          <label>每日治疗次数
+            <input name="treatmentsPerDay" type="number" min="0" step="1" placeholder="例：3" required>
+          </label>
+          <label>头/弹夹总发数
+            <input name="tipShots" type="number" min="1" step="1" placeholder="例：900" required>
+          </label>
+        </form>
+        <div class="result-box" id="rf-result" aria-live="polite"></div>
+      </article>
+
+      <article class="panel" id="panel-laser">
+        <h2>激光 ROI 分析</h2>
+        <p class="sub">基于每日患者套餐营收计算投资回收期。</p>
+        <form id="laser-form" class="form-grid" novalidate>
+          <label>设备价格（韩元）
+            <input name="equipmentPrice" type="text" inputmode="numeric" placeholder="例：150,000,000" required data-price>
+          </label>
+          <label>单次治疗价格（韩元）
+            <input name="sessionUnitPrice" type="text" inputmode="numeric" placeholder="例：300,000" required data-price>
+          </label>
+          <label>套餐次数
+            <input name="ticketingCount" type="number" min="0" step="1" placeholder="例：3" required>
+          </label>
+          <label>每日患者数
+            <input name="customerCount" type="number" min="0" step="1" placeholder="例：5" required>
+          </label>
+        </form>
+        <div class="result-box" id="laser-result" aria-live="polite"></div>
+      </article>
+
+      <article class="panel" id="panel-speech">
+        <div id="speech-grid-view">
+          <div class="panel-header">
+            <h2>销售话术</h2>
+            <p class="sub">选择设备后，查看竞品对比和销售话术。</p>
+          </div>
+          <div class="device-grid" id="device-grid"></div>
+        </div>
+        <div id="speech-detail-view" class="hidden">
+          <button class="back-btn" id="back-btn" type="button">← 设备列表</button>
+          <div id="speech-detail-content"></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>window.FIXED_LANG = "zh";</script>
+  <script src="../lang.js?v=1"></script>
+  <script src="../speech.js?v=2"></script>
+  <script src="../app-intl.js?v=1"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+    initSpeech();
+  </script>
+</body>
+</html>
