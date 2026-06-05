@@ -51,7 +51,7 @@ const TRANSLATIONS = {
 
     fmt_days: (v) => `${v.toFixed(1)}일`,
     fmt_times: (v) => `${Math.round(v).toLocaleString("ko-KR")}회`,
-    fmt_won: (v) => `${Math.round(v).toLocaleString("ko-KR")}원`,
+    fmt_won: (v) => Math.round(v).toLocaleString("ko-KR"),
     fmt_impossible: "회수 불가",
   },
 
@@ -105,7 +105,7 @@ const TRANSLATIONS = {
 
     fmt_days: (v) => `${v.toFixed(1)} days`,
     fmt_times: (v) => `${Math.round(v).toLocaleString("en-US")} sessions`,
-    fmt_won: (v) => `₩${Math.round(v).toLocaleString("en-US")}`,
+    fmt_won: (v) => Math.round(v).toLocaleString("en-US"),
     fmt_impossible: "Not recoverable",
   },
 
@@ -159,7 +159,7 @@ const TRANSLATIONS = {
 
     fmt_days: (v) => `${v.toFixed(1)}天`,
     fmt_times: (v) => `${Math.round(v).toLocaleString("zh-CN")}次`,
-    fmt_won: (v) => `₩${Math.round(v).toLocaleString("zh-CN")}`,
+    fmt_won: (v) => Math.round(v).toLocaleString("zh-CN"),
     fmt_impossible: "无法回收",
   }
 };
