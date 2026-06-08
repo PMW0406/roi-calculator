@@ -530,12 +530,8 @@ input[readonly]:focus {
 .rf-divider {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 20px 0;
-  color: var(--ink-3);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .04em;
+  gap: 14px;
+  margin: 24px 0;
 }
 
 .rf-divider::before,
@@ -543,7 +539,28 @@ input[readonly]:focus {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--line);
+  background: linear-gradient(90deg, transparent, rgba(255,90,10,.4), transparent);
+}
+
+.rf-divider span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, rgba(255,90,10,.18), rgba(255,90,10,.08));
+  border: 1px solid rgba(255,90,10,.40);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand);
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+.rf-divider span::before {
+  content: '▶';
+  font-size: 9px;
+  opacity: .7;
 }
 
 .error-box {
