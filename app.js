@@ -245,17 +245,38 @@ function calcRF() {
   const pureProfit = totalRevenue - packagePrice;
   const paybackDays = packagePrice / (pricePerTreatment * treatmentsPerDay);
 
-  renderResult(
-    result,
-    "RF/HIFU 결과",
-    [
-      { label: t("res_paybackDays"),     value: day(paybackDays),   primary: true },
-      { label: t("res_totalTreatments"), value: times(totalTreatments) },
-      { label: t("res_totalRevenue"),    value: won(totalRevenue) },
-      { label: t("res_pureProfit"),      value: won(pureProfit),    primary: true }
-    ],
-    ""
-  );
+  const dailyRevenue = pricePerTreatment * treatmentsPerDay;
+
+  result.innerHTML = `
+    <div class="result-inner rf-story">
+      <div class="result-title">● RF/HIFU 결과</div>
+
+      <div class="rf-block rf-block--payback">
+        <div class="rf-block-label">원금 회수까지</div>
+        <div class="rf-hero-value">${day(paybackDays)}</div>
+        <div class="rf-formula">
+          패키지 <strong>${won(packagePrice)}</strong> ÷
+          (1회 <strong>${won(pricePerTreatment)}</strong> × 하루 <strong>${treatmentsPerDay}회</strong>)
+          = 하루 매출 <strong>${won(dailyRevenue)}</strong>
+        </div>
+      </div>
+
+      <div class="rf-block rf-block--profit">
+        <div class="rf-block-label">이 패키지로 벌 수 있는 총 수익</div>
+        <div class="rf-hero-value rf-hero-value--profit">${won(pureProfit)}</div>
+        <div class="rf-sub-grid">
+          <div class="rf-sub-item">
+            <span class="rf-sub-label">총 시술 횟수</span>
+            <span class="rf-sub-value">${times(totalTreatments)}</span>
+          </div>
+          <div class="rf-sub-item">
+            <span class="rf-sub-label">총 매출</span>
+            <span class="rf-sub-value">${won(totalRevenue)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function calcLaser() {

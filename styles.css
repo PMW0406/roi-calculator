@@ -353,6 +353,91 @@ input[readonly]:focus {
   color: var(--success);
 }
 
+/* ── RF Story Result ─────────────────────────────── */
+.rf-story {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rf-block {
+  border-radius: var(--radius-sm);
+  padding: 20px 22px;
+}
+
+.rf-block--payback {
+  background: var(--success-dim);
+  border: 1px solid rgba(52,211,154,.25);
+}
+
+.rf-block--profit {
+  background: rgba(255,90,10,.10);
+  border: 1px solid rgba(255,90,10,.30);
+}
+
+.rf-block-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+
+.rf-hero-value {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--success);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.rf-hero-value--profit {
+  color: var(--brand);
+}
+
+.rf-formula {
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+.rf-formula strong {
+  color: var(--ink-1);
+  font-weight: 700;
+}
+
+.rf-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.rf-sub-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rf-sub-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.rf-sub-value {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
 .error-box {
   background: rgba(248,113,113,.08);
   border: 1px solid rgba(248,113,113,.25);
