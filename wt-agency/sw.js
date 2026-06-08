@@ -1,7 +1,7 @@
-const CACHE = "wontech-roi-ko-v1";
+const CACHE = "wontech-agency-v1";
 const ASSETS = [
-  "/roi-calculator/wt-k7r/",
-  "/roi-calculator/wt-k7r/index.html",
+  "/roi-calculator/wt-agency/",
+  "/roi-calculator/wt-agency/index.html",
   "/roi-calculator/styles.css",
   "/roi-calculator/lang.js",
   "/roi-calculator/speech.js",
@@ -26,7 +26,11 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   e.respondWith(
     fetch(e.request)
-      .then((res) => { const c = res.clone(); caches.open(CACHE).then((ca) => ca.put(e.request, c)); return res; })
+      .then((res) => {
+        const c = res.clone();
+        caches.open(CACHE).then((ca) => ca.put(e.request, c));
+        return res;
+      })
       .catch(() => caches.match(e.request))
   );
 });
