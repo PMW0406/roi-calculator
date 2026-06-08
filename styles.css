@@ -403,6 +403,19 @@ input[readonly]:focus {
   border: 1px solid rgba(255,90,10,.35);
 }
 
+.rf-card-badge--blue {
+  background: rgba(96,165,250,.15);
+  color: #60a5fa;
+  border: 1px solid rgba(96,165,250,.30);
+}
+
+.rf-card--laser-daily {
+  background: linear-gradient(135deg, rgba(96,165,250,.10) 0%, rgba(96,165,250,.04) 100%);
+  border: 1px solid rgba(96,165,250,.25);
+}
+
+.rf-conclusion--blue .rf-conclusion-big { color: #60a5fa; }
+
 /* input chips row */
 .rf-inputs-row {
   display: flex;

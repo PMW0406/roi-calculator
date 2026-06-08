@@ -347,15 +347,64 @@ function calcLaser() {
     return;
   }
 
-  renderResult(
-    result,
-    "Laser 결과",
-    [
-      { label: t("res_dailyRevenue"), value: won(packagePrice), primary: true },
-      { label: t("res_paybackDays"), value: day(paybackDays),   primary: true }
-    ],
-    ""
-  );
+  result.innerHTML = `
+    <div class="rf-story">
+
+      <div class="rf-card rf-card--laser-daily">
+        <div class="rf-card-header">
+          <span class="rf-card-badge rf-card-badge--blue">하루 매출 계산</span>
+        </div>
+        <div class="rf-inputs-row">
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">1회 시술단가</span>
+            <span class="rf-chip-value">${won(sessionUnitPrice)}</span>
+          </div>
+          <span class="rf-op">×</span>
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">티케팅수</span>
+            <span class="rf-chip-value">${ticketingCount}회</span>
+          </div>
+          <span class="rf-op">×</span>
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">고객수</span>
+            <span class="rf-chip-value">${customerCount}명/일</span>
+          </div>
+        </div>
+        <div class="rf-arrow">▼</div>
+        <div class="rf-conclusion rf-conclusion--blue">
+          <span class="rf-conclusion-pre">하루 매출</span>
+          <span class="rf-conclusion-big">${won(packagePrice)}</span>
+        </div>
+      </div>
+
+      <div class="rf-divider">
+        <span>이 매출로 장비값 회수하면?</span>
+      </div>
+
+      <div class="rf-card rf-card--payback">
+        <div class="rf-card-header">
+          <span class="rf-card-badge rf-card-badge--green">원금 회수</span>
+        </div>
+        <div class="rf-inputs-row">
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">장비 가격</span>
+            <span class="rf-chip-value">${won(equipmentPrice)}</span>
+          </div>
+          <span class="rf-op">÷</span>
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">하루 매출</span>
+            <span class="rf-chip-value">${won(packagePrice)}</span>
+          </div>
+        </div>
+        <div class="rf-arrow">▼</div>
+        <div class="rf-conclusion rf-conclusion--green">
+          <span class="rf-conclusion-big">${day(paybackDays)}</span>
+          <span class="rf-conclusion-post">만에 원금 회수</span>
+        </div>
+      </div>
+
+    </div>
+  `;
 }
 
 function calcInstallment() {
