@@ -584,6 +584,11 @@ input[readonly]:focus {
   }
 }
 
+/* ── 3-tab layout ──────────────────────────────── */
+.tabs--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* ── Delivery search ────────────────────────────── */
 #delivery-input {
   width: 100%;
