@@ -248,33 +248,79 @@ function calcRF() {
   const dailyRevenue = pricePerTreatment * treatmentsPerDay;
 
   result.innerHTML = `
-    <div class="result-inner rf-story">
-      <div class="result-title">● RF/HIFU 결과</div>
+    <div class="rf-story">
 
-      <div class="rf-block rf-block--payback">
-        <div class="rf-block-label">원금 회수까지</div>
-        <div class="rf-hero-value">${day(paybackDays)}</div>
-        <div class="rf-formula">
-          패키지 <strong>${won(packagePrice)}</strong> ÷
-          (1회 <strong>${won(pricePerTreatment)}</strong> × 하루 <strong>${treatmentsPerDay}회</strong>)
-          = 하루 매출 <strong>${won(dailyRevenue)}</strong>
+      <div class="rf-card rf-card--payback">
+        <div class="rf-card-header">
+          <span class="rf-card-badge rf-card-badge--green">원금 회수</span>
+        </div>
+        <div class="rf-inputs-row">
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">패키지 가격</span>
+            <span class="rf-chip-value">${won(packagePrice)}</span>
+          </div>
+          <span class="rf-op">÷</span>
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">1회 시술단가</span>
+            <span class="rf-chip-value">${won(pricePerTreatment)}</span>
+          </div>
+          <span class="rf-op">÷</span>
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">일 시술 횟수</span>
+            <span class="rf-chip-value">${treatmentsPerDay}회</span>
+          </div>
+        </div>
+        <div class="rf-arrow">▼</div>
+        <div class="rf-conclusion rf-conclusion--green">
+          <span class="rf-conclusion-pre">패키지 구매 후</span>
+          <span class="rf-conclusion-big">${day(paybackDays)}</span>
+          <span class="rf-conclusion-post">만에 원금 회수</span>
+        </div>
+        <div class="rf-daily-note">하루 매출 ${won(dailyRevenue)} 기준</div>
+      </div>
+
+      <div class="rf-divider">
+        <span>이 패키지, 끝까지 쓰면?</span>
+      </div>
+
+      <div class="rf-card rf-card--profit">
+        <div class="rf-card-header">
+          <span class="rf-card-badge rf-card-badge--orange">총 수익 구조</span>
+        </div>
+        <div class="rf-inputs-row">
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">소모품</span>
+            <span class="rf-chip-value">${consumableCount}개</span>
+          </div>
+          <span class="rf-op">×</span>
+          <div class="rf-input-chip">
+            <span class="rf-chip-label">팁 총 샷수 ÷ 시술샷수</span>
+            <span class="rf-chip-value">${Math.round(tipShots / shotsPerTreatment)}회/개</span>
+          </div>
+          <span class="rf-op">=</span>
+          <div class="rf-input-chip rf-input-chip--accent">
+            <span class="rf-chip-label">총 시술 횟수</span>
+            <span class="rf-chip-value">${times(totalTreatments)}</span>
+          </div>
+        </div>
+        <div class="rf-profit-breakdown">
+          <div class="rf-breakdown-row">
+            <span>총 매출 (${times(totalTreatments)} × ${won(pricePerTreatment)})</span>
+            <span>${won(totalRevenue)}</span>
+          </div>
+          <div class="rf-breakdown-row rf-breakdown-minus">
+            <span>패키지 비용</span>
+            <span>− ${won(packagePrice)}</span>
+          </div>
+        </div>
+        <div class="rf-arrow">▼</div>
+        <div class="rf-conclusion rf-conclusion--orange">
+          <span class="rf-conclusion-pre">이 패키지로 총</span>
+          <span class="rf-conclusion-big">${won(pureProfit)}</span>
+          <span class="rf-conclusion-post">수익</span>
         </div>
       </div>
 
-      <div class="rf-block rf-block--profit">
-        <div class="rf-block-label">이 패키지로 벌 수 있는 총 수익</div>
-        <div class="rf-hero-value rf-hero-value--profit">${won(pureProfit)}</div>
-        <div class="rf-sub-grid">
-          <div class="rf-sub-item">
-            <span class="rf-sub-label">총 시술 횟수</span>
-            <span class="rf-sub-value">${times(totalTreatments)}</span>
-          </div>
-          <div class="rf-sub-item">
-            <span class="rf-sub-label">총 매출</span>
-            <span class="rf-sub-value">${won(totalRevenue)}</span>
-          </div>
-        </div>
-      </div>
     </div>
   `;
 }

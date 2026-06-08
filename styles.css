@@ -357,85 +357,180 @@ input[readonly]:focus {
 .rf-story {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
+  margin-top: 24px;
 }
 
-.rf-block {
-  border-radius: var(--radius-sm);
-  padding: 20px 22px;
+.rf-card {
+  border-radius: var(--radius);
+  padding: 22px 22px 20px;
 }
 
-.rf-block--payback {
-  background: var(--success-dim);
-  border: 1px solid rgba(52,211,154,.25);
+.rf-card--payback {
+  background: linear-gradient(135deg, rgba(52,211,154,.10) 0%, rgba(52,211,154,.05) 100%);
+  border: 1px solid rgba(52,211,154,.28);
 }
 
-.rf-block--profit {
-  background: rgba(255,90,10,.10);
+.rf-card--profit {
+  background: linear-gradient(135deg, rgba(255,90,10,.10) 0%, rgba(255,90,10,.05) 100%);
   border: 1px solid rgba(255,90,10,.30);
+  margin-top: 0;
 }
 
-.rf-block-label {
+.rf-card-header {
+  margin-bottom: 16px;
+}
+
+.rf-card-badge {
+  display: inline-block;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: .07em;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 6px;
+  padding: 3px 10px;
+  border-radius: 20px;
 }
 
-.rf-hero-value {
-  font-family: "Manrope", sans-serif;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 800;
+.rf-card-badge--green {
+  background: rgba(52,211,154,.18);
   color: var(--success);
-  line-height: 1.1;
-  margin-bottom: 10px;
+  border: 1px solid rgba(52,211,154,.35);
 }
 
-.rf-hero-value--profit {
+.rf-card-badge--orange {
+  background: rgba(255,90,10,.18);
   color: var(--brand);
+  border: 1px solid rgba(255,90,10,.35);
 }
 
-.rf-formula {
-  font-size: 13px;
-  color: var(--ink-3);
-  line-height: 1.6;
+/* input chips row */
+.rf-inputs-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
 }
 
-.rf-formula strong {
-  color: var(--ink-1);
+.rf-op {
+  font-size: 18px;
   font-weight: 700;
+  color: var(--ink-3);
+  flex-shrink: 0;
 }
 
-.rf-sub-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255,255,255,.07);
-}
-
-.rf-sub-item {
+.rf-input-chip {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 80px;
 }
 
-.rf-sub-label {
-  font-size: 11px;
+.rf-input-chip--accent {
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.18);
+}
+
+.rf-chip-label {
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: .05em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--ink-3);
 }
 
-.rf-sub-value {
+.rf-chip-value {
   font-family: "Manrope", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--ink-1);
+}
+
+/* arrow */
+.rf-arrow {
+  text-align: center;
+  font-size: 18px;
+  color: var(--ink-3);
+  margin: 2px 0 10px;
+}
+
+/* conclusion */
+.rf-conclusion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.rf-conclusion-pre,
+.rf-conclusion-post {
+  font-size: 14px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.rf-conclusion-big {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.rf-conclusion--green .rf-conclusion-big { color: var(--success); }
+.rf-conclusion--orange .rf-conclusion-big { color: var(--brand); }
+
+.rf-daily-note {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* profit breakdown */
+.rf-profit-breakdown {
+  background: rgba(0,0,0,.18);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rf-breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
   color: var(--ink-2);
+}
+
+.rf-breakdown-minus {
+  color: var(--ink-3);
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* divider */
+.rf-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.rf-divider::before,
+.rf-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
 }
 
 .error-box {
