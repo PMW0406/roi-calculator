@@ -575,15 +575,20 @@ function renderDetail(d) {
 
   const rivals = competitors.map((c) => `<span class="rival-chip">${c}</span>`).join("");
 
-  const speechBlocks = speeches.map((block) => {
-    if (block.closing) {
-      return `<div class="speech-closing" style="border-color:${d.color}60; background:${d.color}12">
-        <span class="speech-dot" style="background:${d.color}"></span>
-        <p>${parseBold(block.text)}</p>
-      </div>`;
-    }
-    return `<p class="speech-para">${parseBold(block.text)}</p>`;
-  }).join("");
+  const closing = speeches.find((b) => b.closing);
+  const details = speeches.filter((b) => !b.closing);
+
+  const closingBlock = closing ? `
+    <div class="speech-closing" style="border-color:${d.color}60; background:${d.color}12">
+      <span class="speech-dot" style="background:${d.color}"></span>
+      <p>${parseBold(closing.text)}</p>
+    </div>` : "";
+
+  const detailBlocks = details.map((block) =>
+    `<p class="speech-para">${parseBold(block.text)}</p>`
+  ).join("");
+
+  const speechBlocks = closingBlock + detailBlocks;
 
   return `
     <div class="detail-header">
