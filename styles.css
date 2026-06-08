@@ -877,20 +877,22 @@ input[readonly]:focus {
 .speech-closing {
   border: 1px solid;
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
+  padding: 16px 20px;
   margin-top: 4px;
 }
 
-.speech-closing p {
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--ink-2);
+.speech-closing-text {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--ink);
   margin: 0;
+  letter-spacing: -.01em;
 }
 
 .speech-closing strong {
-  color: var(--ink);
-  font-weight: 700;
+  color: inherit;
+  font-weight: 800;
 }
 
 .speech-dot {

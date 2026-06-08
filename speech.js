@@ -579,9 +579,8 @@ function renderDetail(d) {
   const details = speeches.filter((b) => !b.closing);
 
   const closingBlock = closing ? `
-    <div class="speech-closing" style="border-color:${d.color}60; background:${d.color}12">
-      <span class="speech-dot" style="background:${d.color}"></span>
-      <p>${parseBold(closing.text)}</p>
+    <div class="speech-closing" style="border-color:${d.color}70; background:${d.color}14; border-left: 3px solid ${d.color}">
+      <p class="speech-closing-text">${parseBold(closing.text)}</p>
     </div>` : "";
 
   const detailBlocks = details.map((block) =>
