@@ -105,31 +105,6 @@
     </section>
   </main>
 
-  <!-- PWA 설치 배너 -->
-  <div id="pwa-banner" style="display:none">
-    <div id="pwa-banner-inner">
-      <img src="../icons/icon-192.png" alt="앱 아이콘" id="pwa-icon">
-      <div id="pwa-text">
-        <strong>홈 화면에 앱 추가</strong>
-        <span>오프라인에서도 사용 가능합니다</span>
-      </div>
-      <button id="pwa-install-btn" type="button">설치</button>
-      <button id="pwa-dismiss-btn" type="button">✕</button>
-    </div>
-  </div>
-
-  <!-- iOS 설치 안내 (Safari 전용) -->
-  <div id="ios-banner" style="display:none">
-    <div id="pwa-banner-inner">
-      <img src="../icons/icon-192.png" alt="앱 아이콘" id="pwa-icon">
-      <div id="pwa-text">
-        <strong>홈 화면에 추가하기</strong>
-        <span>하단 공유버튼 → "홈 화면에 추가" 탭</span>
-      </div>
-      <button id="ios-dismiss-btn" type="button">✕</button>
-    </div>
-  </div>
-
   <script>window.FIXED_LANG = "ko";</script>
   <script src="../lang.js?v=1"></script>
   <script src="../speech.js?v=3"></script>
@@ -152,51 +127,6 @@
       });
     })();
     initSpeech();
-
-    // ── PWA 설치 배너 ──────────────────────────────
-    let deferredPrompt = null;
-    const pwaBanner  = document.getElementById("pwa-banner");
-    const iosBanner  = document.getElementById("ios-banner");
-
-    // Android/Chrome: beforeinstallprompt 이벤트
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      // 이미 설치됐으면 표시 안 함
-      if (!sessionStorage.getItem("pwa-dismissed")) {
-        pwaBanner.style.display = "block";
-      }
-    });
-
-    document.getElementById("pwa-install-btn").addEventListener("click", async () => {
-      pwaBanner.style.display = "none";
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-    });
-
-    document.getElementById("pwa-dismiss-btn").addEventListener("click", () => {
-      pwaBanner.style.display = "none";
-      sessionStorage.setItem("pwa-dismissed", "1");
-    });
-
-    // iOS Safari: standalone 아닐 때만 표시
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    const isStandalone = window.navigator.standalone === true;
-    if (isIOS && !isStandalone && !sessionStorage.getItem("ios-dismissed")) {
-      iosBanner.style.display = "block";
-    }
-
-    document.getElementById("ios-dismiss-btn").addEventListener("click", () => {
-      iosBanner.style.display = "none";
-      sessionStorage.setItem("ios-dismissed", "1");
-    });
-
-    // SW 등록
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("sw.js");
-    }
   </script>
 </body>
 </html>
