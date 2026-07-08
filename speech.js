@@ -16,10 +16,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "Excel V", en: "Excel V", zh: "Excel V" },
       rows: [
-        { label: { ko: "가격",   en: "Price",       zh: "价格"   }, wontech: { ko: "약 6,000만원",  en: "~₩60M",          zh: "约6,000万韩元" }, rival: { ko: "1.5~2억",   en: "₩150M~200M",  zh: "1.5~2亿韩元" } },
-        { label: { ko: "소모품", en: "Consumables", zh: "耗材"   }, wontech: { ko: "없음",          en: "None",           zh: "无"           }, rival: { ko: "있음",     en: "Required",    zh: "有"           } },
-        { label: { ko: "A/S",   en: "After-sales",  zh: "售后"   }, wontech: { ko: "국내 즉시 대응", en: "Immediate (KR)", zh: "国内即时响应"  }, rival: { ko: "수입 지연", en: "Import delay", zh: "进口延迟"     } },
-        { label: { ko: "ROI",   en: "ROI",          zh: "ROI"    }, wontech: { ko: "매우 우수",      en: "Excellent",      zh: "非常优秀"      }, rival: { ko: "투자금 부담", en: "High cost burden", zh: "投资负担重" } }
+        { label: { ko: "가격",   en: "Price",       zh: "价格"   }, wontech: { ko: "약 6,000만원",  en: "~₩60M",          zh: "约6,000万韩元<span class='tbl-note'>引进负担↓</span>" }, rival: { ko: "1.5~2억",   en: "₩150M~200M",  zh: "1.5~2亿韩元<span class='tbl-note'>高价投资</span>" } },
+        { label: { ko: "소모품", en: "Consumables", zh: "耗材"   }, wontech: { ko: "없음",          en: "None",           zh: "无<span class='tbl-note'>节省运营成本</span>"           }, rival: { ko: "있음",     en: "Required",    zh: "有<span class='tbl-note'>消耗性成本</span>"           } },
+        { label: { ko: "A/S",   en: "After-sales",  zh: "售后"   }, wontech: { ko: "국내 즉시 대응", en: "Immediate (KR)", zh: "国内即时响应<span class='tbl-note'>停工期最短</span>"  }, rival: { ko: "수입 지연", en: "Import delay", zh: "进口延迟"     } },
+        { label: { ko: "ROI",   en: "ROI",          zh: "ROI"    }, wontech: { ko: "매우 우수",      en: "Excellent",      zh: "非常优秀<span class='tbl-note'>回收周期缩短</span>"      }, rival: { ko: "투자금 부담", en: "High cost burden", zh: "投资负担重" } }
       ]
     },
     speech: {
@@ -36,10 +36,8 @@ const SPEECH_DATA = [
         { closing: true, text: "Zero consumable costs, broad indications — Excel V-level results for ₩60M. The fastest ROI among vascular and pigmentation platforms." }
       ],
       zh: [
-        { text: "V LASER**无需更换手具即可在532nm和1064nm双波长之间即时切换**，实现不间断的连续诊疗流程。" },
-        { text: "4级接触式冷却系统可根据皮肤类型和病变种类精细调节参数，**最大限度降低灼伤风险**。" },
-        { text: "**无耗材设计使维护成本几乎为零**，一台设备即可覆盖血管病变、嫩肤、色素、痤疮等广泛适应症。" },
-        { closing: true, text: "耗材成本'零负担'，广覆盖适应症——以6,000万韩元实现Excel V级别效果。ROI回收最快的血管·色素治疗平台。" }
+        { closing: true, text: "Excel V是1.5~2亿韩元级的高价设备，而V-LASER以约6,000万韩元提供同级效果——**引进负担更低，回收周期更快**。" },
+        { text: "以耗材成本'零'降低运营费用，**国内即时售后将停工期降至最短**的血管·色素平台。" }
       ]
     }
   },
@@ -50,7 +48,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "기존 Q-Switch가 못 지우는 문신색상까지 커버",
       en: "Covers tattoo colors that conventional Q-Switch cannot remove",
-      zh: "覆盖传统Q开关无法去除的文身颜色"
+      zh: "覆盖传统Q开关无法去除文身颜色的高功率Q开关激光"
     },
     competitors: {
       ko: ["Spectra XT", "Revlite SI", "Medlite C6"],
@@ -60,10 +58,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "기존 Q-Switched", en: "Q-Switched", zh: "传统Q开关" },
       rows: [
-        { label: { ko: "파장",     en: "Wavelength",  zh: "波长"   }, wontech: { ko: "1064/532/595/660", en: "1064/532/595/660", zh: "1064/532/595/660" }, rival: { ko: "1064/532", en: "1064/532",  zh: "1064/532" } },
-        { label: { ko: "문신 색상", en: "Tattoo color", zh: "文身颜色" }, wontech: { ko: "거의 전색상",   en: "Nearly all colors", zh: "几乎全色系"     }, rival: { ko: "제한적",  en: "Limited",   zh: "有限"         } },
-        { label: { ko: "MLA",      en: "MLA",          zh: "MLA"    }, wontech: { ko: "가능",           en: "Available",         zh: "支持"           }, rival: { ko: "제한",    en: "Limited",   zh: "受限"         } },
-        { label: { ko: "활용성",   en: "Versatility",  zh: "适用性" }, wontech: { ko: "매우 높음",       en: "Very high",         zh: "非常高"         }, rival: { ko: "색소 위주", en: "Pigment-focused", zh: "以色素为主" } }
+        { label: { ko: "파장",     en: "Wavelength",  zh: "波长"   }, wontech: { ko: "1064/532/595/660", en: "1064/532/595/660", zh: "1064/532/595/660<span class='tbl-note'>4波长多功能</span>" }, rival: { ko: "1064/532", en: "1064/532",  zh: "1064/532<span class='tbl-note'>仅限2波长</span>" } },
+        { label: { ko: "문신 색상", en: "Tattoo color", zh: "文身颜色" }, wontech: { ko: "거의 전색상",   en: "Nearly all colors", zh: "几乎全色系<span class='tbl-note'>彩色文身也可</span>"     }, rival: { ko: "제한적",  en: "Limited",   zh: "有限<span class='tbl-note'>以黑·蓝为主</span>"         } },
+        { label: { ko: "MLA",      en: "MLA",          zh: "MLA"    }, wontech: { ko: "가능",           en: "Available",         zh: "支持<span class='tbl-note'>均匀发射</span>"           }, rival: { ko: "제한",    en: "Limited",   zh: "受限<span class='tbl-note'>选配·不支持</span>"         } },
+        { label: { ko: "활용성",   en: "Versatility",  zh: "适用性" }, wontech: { ko: "매우 높음",       en: "Very high",         zh: "非常高<span class='tbl-note'>多重适应症</span>"         }, rival: { ko: "색소 위주", en: "Pigment-focused", zh: "以色素为主<span class='tbl-note'>单一适应症</span>" } }
       ]
     },
     speech: {
@@ -80,10 +78,8 @@ const SPEECH_DATA = [
         { closing: true, text: "Accept every tattoo color with 4 wavelengths. Expand your treatment menu and improve profitability at the same time." }
       ],
       zh: [
-        { text: "与传统Q开关设备仅限于1064/532nm不同，**PASTELLE PRO支持595nm（红血丝·蓝色文身）和660nm（绿色文身·高黑色素）共4种波长**。" },
-        { text: "因此，之前无法处理的多色文身案例也能有效治疗，拓宽了诊疗范围。" },
-        { text: "**HEXA MLA和多重PTP模式**最大化光机械破坏力，以更少的治疗次数实现显著效果。" },
-        { closing: true, text: "4种波长覆盖所有文身颜色，诊疗菜单扩展与盈利提升同步实现。" }
+        { closing: true, text: "传统Q开关设备停留在1064·532nm双波长，无法处理彩色文身——PASTELLE PRO再加595·660nm，以**4波长覆盖几乎所有文身颜色**。" },
+        { text: "MLA手具实现均匀发射与更短停工期——**同步实现诊疗菜单扩展与盈利**的高端Q开关平台。" }
       ]
     }
   },
@@ -94,7 +90,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "250ps 초단파 펄스로 프리미엄 피코 시장 공략",
       en: "250ps ultra-short pulse for premium pico laser market",
-      zh: "250ps超短脉冲，攻占高端皮秒市场"
+      zh: "以250ps超短脉冲攻占高端皮秒市场的国产旗舰"
     },
     competitors: {
       ko: ["피코웨이", "PicoPlus", "디스커버리 피코"],
@@ -104,10 +100,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "PicoPlus", en: "PicoPlus", zh: "PicoPlus" },
       rows: [
-        { label: { ko: "펄스폭",   en: "Pulse width", zh: "脉宽"   }, wontech: { ko: "250ps",      en: "250ps",         zh: "250ps"    }, rival: { ko: "300ps급",     en: "~300ps",       zh: "约300ps"   } },
-        { label: { ko: "피크파워", en: "Peak power",   zh: "峰值功率" }, wontech: { ko: "2GW",        en: "2GW",           zh: "2GW"      }, rival: { ko: "상대적 낮음", en: "Relatively low", zh: "相对较低"  } },
-        { label: { ko: "유지비",   en: "Maintenance",  zh: "维护成本" }, wontech: { ko: "국산 저렴",  en: "Low (domestic)", zh: "国产低价" }, rival: { ko: "수입 고가",   en: "High (import)", zh: "进口高价"  } },
-        { label: { ko: "가격",     en: "Price",        zh: "价格"   }, wontech: { ko: "경쟁력 우수", en: "Competitive",    zh: "价格有优势" }, rival: { ko: "고가",       en: "Premium",      zh: "高价"       } }
+        { label: { ko: "펄스폭",   en: "Pulse width", zh: "脉宽"   }, wontech: { ko: "250ps",      en: "250ps",         zh: "250ps<span class='tbl-note'>世界最短级别</span>"    }, rival: { ko: "300ps급",     en: "~300ps",       zh: "约300ps<span class='tbl-note'>相对较长</span>"   } },
+        { label: { ko: "피크파워", en: "Peak power",   zh: "峰值功率" }, wontech: { ko: "2GW",        en: "2GW",           zh: "2GW<span class='tbl-note'>强力粉碎色素</span>"      }, rival: { ko: "상대적 낮음", en: "Relatively low", zh: "相对较低<span class='tbl-note'>输出受限</span>"  } },
+        { label: { ko: "유지비",   en: "Maintenance",  zh: "维护成本" }, wontech: { ko: "국산 저렴",  en: "Low (domestic)", zh: "国产低价<span class='tbl-note'>节省运营成本</span>" }, rival: { ko: "수입 고가",   en: "High (import)", zh: "进口高价<span class='tbl-note'>负担↑</span>"  } },
+        { label: { ko: "가격",     en: "Price",        zh: "价格"   }, wontech: { ko: "경쟁력 우수", en: "Competitive",    zh: "价格有优势<span class='tbl-note'>ROI↑</span>" }, rival: { ko: "고가",       en: "Premium",      zh: "高价<span class='tbl-note'>投资负担</span>"       } }
       ]
     },
     speech: {
@@ -124,10 +120,8 @@ const SPEECH_DATA = [
         { closing: true, text: "World's first 250ps · 2GW — faster and more powerful than PicoPlus at a lower price. The only domestic flagship that technically justifies premium procedure pricing." }
       ],
       zh: [
-        { text: "PICOCARE MAJESTY是**全球首款实现250ps脉冲时长的皮秒激光**设备，比Q开关激光快1000倍，以比黑色素体SRT（300ps）更短的脉冲**选择性破坏黑色素体**。" },
-        { text: "**2GW峰值功率**对纳秒激光难以治疗的顽固色素病变和复杂文身颜色均有卓越效果。" },
-        { text: "作为国产设备，与进口皮秒相比**维护成本更低，售后响应更迅速**。" },
-        { closing: true, text: "全球首款250ps · 2GW——比PicoPlus更快更强，价格更低。唯一能以技术实力支撑高端定价的国产旗舰。" }
+        { closing: true, text: "全球首款250ps · 2GW——**比PicoPlus更快、更强，价格更低**。用技术为高端治疗定价正名。" },
+        { text: "作为国产旗舰，是**维护成本与售后负担都更低的唯一皮秒平台**——从引进到运营、回收都是最快的选择。" }
       ]
     }
   },
@@ -138,7 +132,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "755nm 피코 시장 공략용 플랫폼",
       en: "755nm pico platform targeting the Alexandrite market",
-      zh: "755nm皮秒平台，攻占亚历山大激光市场"
+      zh: "精准锁定755nm皮秒亚历山大市场的高功率·高效率平台"
     },
     competitors: {
       ko: ["PicoSure", "Discovery Pico"],
@@ -148,10 +142,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "PicoSure", en: "PicoSure", zh: "PicoSure" },
       rows: [
-        { label: { ko: "출력",         en: "Max output",     zh: "输出"      }, wontech: { ko: "310mJ",      en: "310mJ",          zh: "310mJ"    }, rival: { ko: "상대적 낮음", en: "Relatively low",   zh: "相对较低"  } },
-        { label: { ko: "캘리브레이션", en: "Calibration",    zh: "校准"      }, wontech: { ko: "초기 1회",   en: "Once at start",  zh: "初始1次"  }, rival: { ko: "스팟 변경마다", en: "Per spot change", zh: "每次换光斑" } },
-        { label: { ko: "운용편의성",   en: "Ease of use",    zh: "操作便利性" }, wontech: { ko: "우수",       en: "Excellent",      zh: "优秀"      }, rival: { ko: "보통",       en: "Average",          zh: "一般"      } },
-        { label: { ko: "가격",         en: "Price",          zh: "价格"      }, wontech: { ko: "경쟁력 우수", en: "Competitive",    zh: "价格有优势" }, rival: { ko: "고가",       en: "Premium",          zh: "高价"      } }
+        { label: { ko: "출력",         en: "Max output",     zh: "输出"      }, wontech: { ko: "310mJ",      en: "310mJ",          zh: "310mJ<span class='tbl-note'>高功率稳定发射</span>"    }, rival: { ko: "상대적 낮음", en: "Relatively low",   zh: "相对较低<span class='tbl-note'>输出受限</span>"  } },
+        { label: { ko: "캘리브레이션", en: "Calibration",    zh: "校准"      }, wontech: { ko: "초기 1회",   en: "Once at start",  zh: "初始1次<span class='tbl-note'>运营负担↓</span>"  }, rival: { ko: "스팟 변경마다", en: "Per spot change", zh: "每次换光斑<span class='tbl-note'>运营负担↑</span>" } },
+        { label: { ko: "운용편의성",   en: "Ease of use",    zh: "操作便利性" }, wontech: { ko: "우수",       en: "Excellent",      zh: "优秀<span class='tbl-note'>直观UI</span>"      }, rival: { ko: "보통",       en: "Average",          zh: "一般<span class='tbl-note'>设置复杂</span>"      } },
+        { label: { ko: "가격",         en: "Price",          zh: "价格"      }, wontech: { ko: "경쟁력 우수", en: "Competitive",    zh: "价格有优势<span class='tbl-note'>ROI↑</span>" }, rival: { ko: "고가",       en: "Premium",          zh: "高价<span class='tbl-note'>投资负担</span>"      } }
       ]
     },
     speech: {
@@ -168,10 +162,8 @@ const SPEECH_DATA = [
         { closing: true, text: "Higher output than PicoSure, one-time calibration, and a lower price. Achieve the same results faster and more efficiently." }
       ],
       zh: [
-        { text: "PICOALEX将**755nm亚历山大波长特有的高黑色素选择性**与600ps皮秒技术相结合。" },
-        { text: "与PicoSure相比，**最大输出功率更高（310mJ）**，且更换光斑尺寸时无需每次重新校准，**仅需在治疗开始时校准一次**，大幅提升诊疗效率。" },
-        { text: "通过Zoom和MLA手具，可广泛应对文身去除、色调调整、嫩肤及疤痕治疗，**准入门槛低于同级进口设备**。" },
-        { closing: true, text: "输出高于PicoSure，校准仅需一次，价格更低。以更快、更高效的方式实现相同临床效果。" }
+        { closing: true, text: "相比PicoSure，**输出更高、校准一次即可、价格更低**——能更快更高效实现相同效果的755nm皮秒平台。" },
+        { text: "在减少院长运营时间与运营成本的同时，**皮秒菜单的盈利能力原封不动**地保留。" }
       ]
     }
   },
@@ -182,7 +174,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "개원가에서 가장 무난하게 수익 내는 피코 장비",
       en: "The most reliable pico laser for steady clinic revenue",
-      zh: "开业诊所最稳健的盈利皮秒设备"
+      zh: "开业诊所最稳健盈利的通用型皮秒激光"
     },
     competitors: {
       ko: ["PicoPlus", "PicoLO", "Enlighten"],
@@ -192,10 +184,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "피코플러스", en: "PicoPlus", zh: "PicoPlus" },
       rows: [
-        { label: { ko: "출력",   en: "Output",      zh: "输出"   }, wontech: { ko: "600mJ",     en: "600mJ",          zh: "600mJ"   }, rival: { ko: "500mJ",       en: "500mJ",          zh: "500mJ"    } },
-        { label: { ko: "펄스폭", en: "Pulse width",  zh: "脉宽"   }, wontech: { ko: "450~550ps", en: "450~550ps",      zh: "450~550ps" }, rival: { ko: "유사",       en: "Similar",        zh: "相近"     } },
-        { label: { ko: "가격",   en: "Price",       zh: "价格"   }, wontech: { ko: "우수",       en: "Competitive",    zh: "有优势"  }, rival: { ko: "상대적 고가", en: "Relatively high", zh: "相对较高" } },
-        { label: { ko: "범용성", en: "Versatility", zh: "适用性" }, wontech: { ko: "매우 높음",  en: "Very high",      zh: "非常高"  }, rival: { ko: "높음",       en: "High",           zh: "高"       } }
+        { label: { ko: "출력",   en: "Output",      zh: "输出"   }, wontech: { ko: "600mJ",     en: "600mJ",          zh: "600mJ<span class='tbl-note'>高输出余量</span>"   }, rival: { ko: "500mJ",       en: "500mJ",          zh: "500mJ<span class='tbl-note'>基本水平</span>"    } },
+        { label: { ko: "펄스폭", en: "Pulse width",  zh: "脉宽"   }, wontech: { ko: "450~550ps", en: "450~550ps",      zh: "450~550ps<span class='tbl-note'>稳定运用</span>" }, rival: { ko: "유사",       en: "Similar",        zh: "相近<span class='tbl-note'>相近</span>"     } },
+        { label: { ko: "가격",   en: "Price",       zh: "价格"   }, wontech: { ko: "우수",       en: "Competitive",    zh: "有优势<span class='tbl-note'>引进负担↓</span>"  }, rival: { ko: "상대적 고가", en: "Relatively high", zh: "相对较高<span class='tbl-note'>投资负担↑</span>" } },
+        { label: { ko: "범용성", en: "Versatility", zh: "适用性" }, wontech: { ko: "매우 높음",  en: "Very high",      zh: "非常高<span class='tbl-note'>多重适应症</span>"  }, rival: { ko: "높음",       en: "High",           zh: "高<span class='tbl-note'>基本范围</span>"       } }
       ]
     },
     speech: {
@@ -212,10 +204,8 @@ const SPEECH_DATA = [
         { closing: true, text: "If you're using a nano laser, PICOANDY is the most sensible upgrade — add a pico option for the same patients and increase your treatment pricing." }
       ],
       zh: [
-        { text: "PICOANDY的**450ps皮秒脉冲**在提高色素破坏力的同时，最大限度减少对周围组织的损伤。" },
-        { text: "**1064nm最大600mJ的输出**，一台设备即可覆盖深层真皮色素、表皮色斑到文身去除等广泛适应症。" },
-        { text: "低疼痛、低副作用特性带来**高患者满意度**，灵活的套餐设计直接提升治疗单价和复诊率。" },
-        { closing: true, text: "如果您正在使用纳秒激光，PICOANDY是最合理的升级选择——为同一患者增加皮秒选项，提升治疗单价。" }
+        { closing: true, text: "如果您正在使用纳秒激光，为同一患者增加皮秒选项、**将治疗单价提升一个档次**，这是最合理的升级。" },
+        { text: "输出·脉宽·价格在通用皮秒级别中**盈利与稳定平衡最佳**的开业诊所型平台。" }
       ]
     }
   },
@@ -226,7 +216,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "써마지급 효과 + 국내 A/S + 낮은 소모품 비용",
       en: "Thermage-level results · domestic A/S · lower consumable costs",
-      zh: "媲美热玛吉效果 + 国内售后 + 更低耗材成本"
+      zh: "以五分之一引进成本实现热玛吉级单极射频的国产RF提升"
     },
     competitors: {
       ko: ["써마지 FLX", "볼뉴머"],
@@ -236,10 +226,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "써마지 FLX", en: "Thermage FLX", zh: "热玛吉 FLX" },
       rows: [
-        { label: { ko: "원리",   en: "Principle",   zh: "原理"   }, wontech: { ko: "Monopolar RF",  en: "Monopolar RF",    zh: "单极射频"   }, rival: { ko: "Monopolar RF",  en: "Monopolar RF", zh: "单极射频" } },
-        { label: { ko: "가격",   en: "Price",       zh: "价格"   }, wontech: { ko: "약 5,500만원",  en: "~₩55M",          zh: "约5,500万韩元" }, rival: { ko: "1.5억 이상",   en: "₩150M+",       zh: "1.5亿韩元以上" } },
-        { label: { ko: "A/S",   en: "After-sales",  zh: "售后"   }, wontech: { ko: "국내 즉시 대응", en: "Immediate (KR)", zh: "国内即时响应" }, rival: { ko: "수입 지연",    en: "Import delay", zh: "进口延迟"  } },
-        { label: { ko: "소모품", en: "Consumables", zh: "耗材"   }, wontech: { ko: "저렴",           en: "Affordable",     zh: "低价"        }, rival: { ko: "고가",         en: "Expensive",    zh: "高价"      } }
+        { label: { ko: "원리",   en: "Principle",   zh: "原理"   }, wontech: { ko: "Monopolar RF",  en: "Monopolar RF",    zh: "单极射频<span class='tbl-note'>400W同等输出</span>" }, rival: { ko: "Monopolar RF",  en: "Monopolar RF", zh: "单极射频<span class='tbl-note'>原理相同</span>" } },
+        { label: { ko: "가격",   en: "Price",       zh: "价格"   }, wontech: { ko: "약 5,500만원",  en: "~₩55M",          zh: "约5,500万韩元<span class='tbl-note'>引进负担↓</span>" }, rival: { ko: "1.5억 이상",   en: "₩150M+",       zh: "1.5亿韩元以上<span class='tbl-note'>高价投资</span>" } },
+        { label: { ko: "A/S",   en: "After-sales",  zh: "售后"   }, wontech: { ko: "국내 즉시 대응", en: "Immediate (KR)", zh: "国内即时响应<span class='tbl-note'>停工期最短</span>" }, rival: { ko: "수입 지연",    en: "Import delay", zh: "进口延迟" } },
+        { label: { ko: "소모품", en: "Consumables", zh: "耗材"   }, wontech: { ko: "저렴",           en: "Affordable",     zh: "低价<span class='tbl-note'>节省运营成本</span>" }, rival: { ko: "고가",         en: "Expensive",    zh: "高价<span class='tbl-note'>运营负担↑</span>" } }
       ]
     },
     speech: {
@@ -256,10 +246,8 @@ const SPEECH_DATA = [
         { closing: true, text: "Same monopolar RF as Thermage, equivalent max output of 400W — at less than 1/5 the cost with immediate domestic A/S. Same results, far better operational efficiency." }
       ],
       zh: [
-        { text: "OLIGIO是**韩国首款单极射频设备**，将热能直接传导至真皮胶原蛋白，通过胶原收缩和成纤维细胞刺激促进新胶原再生。" },
-        { text: "**四重安全装置和GAS冷却系统**在治疗过程中实时运行，在最大限度降低热损伤风险的同时确保足够的治疗深度。" },
-        { text: "单模、双模、自动模式配合灵活的冷却调节，可根据临床判断制定个性化方案，**引进成本远低于热玛吉，国内售后更优**。" },
-        { closing: true, text: "与热玛吉相同的单极射频，同等最大输出400W——引进成本不足五分之一，国内即时售后。效果相同，运营效率大幅提升。" }
+        { closing: true, text: "热玛吉FLX是1.5亿韩元以上的高价设备，而OLIGIO以约5,500万韩元提供相同的单极射频·400W同等输出——**引进成本不足1/5，效果不变**。" },
+        { text: "降低耗材负担，国内即时售后将停工期降至最短——**开业诊所引进效率最佳**的单极射频提升平台。" }
       ]
     }
   },
@@ -270,7 +258,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "RF + HIFU 복합 전층 리프팅 — 두 장비가 하나로",
       en: "RF + HIFU combined full-layer lifting — two devices in one",
-      zh: "RF + HIFU复合全层提升——两台设备合为一台"
+      zh: "将Ulthera·热玛吉整合于一台的RF + HIFU复合全层提升平台"
     },
     competitors: {
       ko: ["써마지 FLX", "울쎄라", "볼뉴머"],
@@ -280,10 +268,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "써마지 FLX", en: "Thermage FLX", zh: "热玛吉 FLX" },
       rows: [
-        { label: { ko: "RF",      en: "RF",        zh: "RF"   }, wontech: { ko: "O", en: "✓", zh: "✓" }, rival: { ko: "O", en: "✓", zh: "✓" } },
-        { label: { ko: "HIFU",    en: "HIFU",      zh: "HIFU" }, wontech: { ko: "O", en: "✓", zh: "✓" }, rival: { ko: "X", en: "✗", zh: "✗" } },
-        { label: { ko: "복합시술", en: "Combo tx", zh: "复合治疗" }, wontech: { ko: "O", en: "✓", zh: "✓" }, rival: { ko: "X", en: "✗", zh: "✗" } },
-        { label: { ko: "쿨링",    en: "Cooling",   zh: "冷却"   }, wontech: { ko: "강화", en: "Enhanced", zh: "强化" }, rival: { ko: "기본", en: "Basic", zh: "基本" } }
+        { label: { ko: "RF",      en: "RF",        zh: "RF"   }, wontech: { ko: "O", en: "✓", zh: "支持<span class='tbl-note'>搭载单极射频</span>" }, rival: { ko: "O", en: "✓", zh: "支持<span class='tbl-note'>仅RF</span>" } },
+        { label: { ko: "HIFU",    en: "HIFU",      zh: "HIFU" }, wontech: { ko: "O", en: "✓", zh: "支持<span class='tbl-note'>全层提升</span>" }, rival: { ko: "X", en: "✗", zh: "不支持<span class='tbl-note'>需另购设备</span>" } },
+        { label: { ko: "복합시술", en: "Combo tx", zh: "复合治疗" }, wontech: { ko: "O", en: "✓", zh: "RF+HIFU同时<span class='tbl-note'>一次完成</span>" }, rival: { ko: "X", en: "✗", zh: "不支持<span class='tbl-note'>设备分离运用</span>" } },
+        { label: { ko: "쿨링",    en: "Cooling",   zh: "冷却"   }, wontech: { ko: "강화", en: "Enhanced", zh: "强化冷却<span class='tbl-note'>治疗稳定性↑</span>" }, rival: { ko: "기본", en: "Basic", zh: "基本冷却<span class='tbl-note'>输出受限</span>" } }
       ]
     },
     speech: {
@@ -300,10 +288,8 @@ const SPEECH_DATA = [
         { closing: true, text: "No need to buy Ulthera and Thermage separately. Complete HIFU+RF full-layer lifting with OLIGIO XM alone, and build a recurring revenue structure with XM Pack." }
       ],
       zh: [
-        { text: "OLIGIO XM是**全球首款将HIFU和RF整合于单一平台的复合提升设备**。" },
-        { text: "支持**3能量交叉治疗**：HIFU从SMAS层开始提升，RF G模式温和加热真皮上层，RF X模式强力加热深层组织。" },
-        { text: "Ulthera仅提供HIFU，热玛吉仅提供RF，而**OLIGIO XM以单一平台覆盖两台设备的适应症**。XM Pack耗材套餐支持高端1人1包治疗结构。" },
-        { closing: true, text: "无需分别购买Ulthera和热玛吉。一台OLIGIO XM完成HIFU+RF全层提升，配合XM Pack打造循环营收结构。" }
+        { closing: true, text: "没有理由分别引进Ulthera和热玛吉——OLIGIO XM是在一台设备上**同时传递RF与HIFU**的复合全层提升平台。" },
+        { text: "XM Pack耗材还能一并打造**循环营收结构**——从引进到运营·盈利都最高效的提升选择。" }
       ]
     }
   },
@@ -314,7 +300,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "HIFU 시장 진입용 — 최고의 투자 효율",
       en: "HIFU market entry — best-in-class investment efficiency",
-      zh: "HIFU市场准入首选——最佳投资效率"
+      zh: "HIFU市场准入的最佳投资效率——千万韩元级起步的提升菜单"
     },
     competitors: {
       ko: ["울쎄라", "울트라포머 MPT", "슈링크 유니버스"],
@@ -324,10 +310,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "울쎄라", en: "Ulthera", zh: "Ulthera" },
       rows: [
-        { label: { ko: "가격",     en: "Price",       zh: "价格"   }, wontech: { ko: "1천만원대",  en: "~₩10M",          zh: "约1千万韩元"   }, rival: { ko: "1억 이상",   en: "₩100M+",          zh: "1亿韩元以上" } },
-        { label: { ko: "시술속도", en: "Speed",       zh: "治疗速度" }, wontech: { ko: "300샷 6분",  en: "300 shots/6 min", zh: "300发/6分钟"   }, rival: { ko: "상대적 느림", en: "Relatively slow", zh: "相对较慢"    } },
-        { label: { ko: "도입부담", en: "Entry cost",  zh: "引进负担" }, wontech: { ko: "매우 낮음",  en: "Very low",        zh: "非常低"        }, rival: { ko: "높음",       en: "High",            zh: "高"          } },
-        { label: { ko: "A/S",     en: "After-sales",  zh: "售后"   }, wontech: { ko: "국내",       en: "Domestic",        zh: "国内"          }, rival: { ko: "수입",       en: "Import",          zh: "进口"        } }
+        { label: { ko: "가격",     en: "Price",       zh: "价格"   }, wontech: { ko: "1천만원대",  en: "~₩10M",          zh: "约1千万韩元<span class='tbl-note'>十分之一价格</span>"   }, rival: { ko: "1억 이상",   en: "₩100M+",          zh: "1亿韩元以上<span class='tbl-note'>高价投资</span>" } },
+        { label: { ko: "시술속도", en: "Speed",       zh: "治疗速度" }, wontech: { ko: "300샷 6분",  en: "300 shots/6 min", zh: "300发/6分钟<span class='tbl-note'>周转率↑</span>"   }, rival: { ko: "상대적 느림", en: "Relatively slow", zh: "相对较慢<span class='tbl-note'>周转率↓</span>"    } },
+        { label: { ko: "도입부담", en: "Entry cost",  zh: "引进负担" }, wontech: { ko: "매우 낮음",  en: "Very low",        zh: "非常低<span class='tbl-note'>风险最小</span>"        }, rival: { ko: "높음",       en: "High",            zh: "高<span class='tbl-note'>初期负担↑</span>"          } },
+        { label: { ko: "A/S",     en: "After-sales",  zh: "售后"   }, wontech: { ko: "국내",       en: "Domestic",        zh: "国内即时响应<span class='tbl-note'>停工期最短</span>"          }, rival: { ko: "수입",       en: "Import",          zh: "进口延迟<span class='tbl-note'>响应慢</span>"        } }
       ]
     },
     speech: {
@@ -344,10 +330,8 @@ const SPEECH_DATA = [
         { closing: true, text: "Add a HIFU lifting menu at 1/10 the cost of Ulthera, complete 300 shots in 6 minutes. Maintain treatment pricing while minimizing your investment." }
       ],
       zh: [
-        { text: "TIGHTAN是基于HIFU的非侵入性提升设备，将能量精准聚焦于目标层，**不损伤周围组织即可实现即时提升效果**。" },
-        { text: "**单次治疗效果持续6个月~1年**，300发在6分钟内完成，专为高周转诊疗环境优化。" },
-        { text: "合理的引进价格使其成为**初次增设HIFU治疗菜单诊所的最低门槛选择**，按面部部位选择头具实现个性化治疗。" },
-        { closing: true, text: "以Ulthera十分之一的价格增设HIFU提升菜单，300发6分钟完成。保持治疗单价的同时，将引进负担降到最低。" }
+        { closing: true, text: "以Ulthera**十分之一的价格**原样增设HIFU提升菜单，并确保300发6分钟完成的周转率。" },
+        { text: "保持治疗单价的同时**将引进负担降到最低**——能最安全地开启HIFU首次引进的平台。" }
       ]
     }
   },
@@ -358,7 +342,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "CO2 대비 짧은 다운타임 — 같은 효과, 더 빠른 회복",
       en: "Shorter downtime vs CO2 — same results, faster recovery",
-      zh: "比CO2停工期更短——同等效果，更快恢复"
+      zh: "比CO2停工期更短——同等效果、更快恢复的新一代分段激光"
     },
     competitors: {
       ko: ["액션2", "루트로닉 eCO2", "CO2 레이저"],
@@ -368,10 +352,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "CO2 레이저", en: "CO2 Laser", zh: "CO2激光" },
       rows: [
-        { label: { ko: "열손상",   en: "Thermal damage", zh: "热损伤"   }, wontech: { ko: "적음", en: "Minimal", zh: "少" }, rival: { ko: "많음", en: "High",    zh: "多" } },
-        { label: { ko: "회복속도", en: "Recovery",       zh: "恢复速度" }, wontech: { ko: "빠름", en: "Fast",    zh: "快" }, rival: { ko: "느림", en: "Slow",    zh: "慢" } },
-        { label: { ko: "PIH",     en: "PIH risk",       zh: "PIH风险" }, wontech: { ko: "적음", en: "Low",     zh: "低" }, rival: { ko: "상대적 높음", en: "Higher", zh: "相对较高" } },
-        { label: { ko: "A/S",     en: "After-sales",    zh: "售后"    }, wontech: { ko: "국내", en: "Domestic", zh: "国内" }, rival: { ko: "수입", en: "Import",   zh: "进口" } }
+        { label: { ko: "열손상",   en: "Thermal damage", zh: "热损伤"   }, wontech: { ko: "적음", en: "Minimal", zh: "少<span class='tbl-note'>保护周围组织</span>" }, rival: { ko: "많음", en: "High",    zh: "多<span class='tbl-note'>热扩散↑</span>" } },
+        { label: { ko: "회복속도", en: "Recovery",       zh: "恢复速度" }, wontech: { ko: "빠름", en: "Fast",    zh: "快<span class='tbl-note'>停工期↓</span>" }, rival: { ko: "느림", en: "Slow",    zh: "慢<span class='tbl-note'>停工期↑</span>" } },
+        { label: { ko: "PIH",     en: "PIH risk",       zh: "PIH风险" }, wontech: { ko: "적음", en: "Low",     zh: "低<span class='tbl-note'>色素沉着↓</span>" }, rival: { ko: "상대적 높음", en: "Higher", zh: "相对较高<span class='tbl-note'>风险↑</span>" } },
+        { label: { ko: "A/S",     en: "After-sales",    zh: "售后"    }, wontech: { ko: "국내", en: "Domestic", zh: "国内即时响应<span class='tbl-note'>稳定运用</span>" }, rival: { ko: "수입", en: "Import",   zh: "进口延迟<span class='tbl-note'>响应慢</span>" } }
       ]
     },
     speech: {
@@ -388,10 +372,8 @@ const SPEECH_DATA = [
         { closing: true, text: "16x higher water absorption than CO2 minimizes thermal spread and skin damage — shorter downtime makes it the safer choice that even CO2-hesitant patients accept." }
       ],
       zh: [
-        { text: "AVVIO是一款**水分吸收率比CO2激光高16倍的Er:YAG 2940nm激光**，最大限度减少表皮损伤和热扩散，恢复期大幅缩短。" },
-        { text: "随着对停工期敏感的患者日益增多，AVVIO在**提升患者满意度的同时，提供与CO2同等的治疗效果**。" },
-        { text: "通过Short/Long模式选择对不同病变施加消融或凝固效果，**分段手具进一步扩大适应症范围**。" },
-        { closing: true, text: "水分吸收率比CO2高16倍，热扩散和皮肤损伤最小化——停工期短，即使对CO2顾虑的患者也能接受，是更安全的选择。" }
+        { closing: true, text: "水分吸收率是CO2的16倍，**最大限度减少热扩散和皮肤损伤**——停工期短，连顾虑CO2的患者也能被说服的更安全选择。" },
+        { text: "降低PIH风险，同时**提升周转率与咨询转化率**的高端分段激光平台。" }
       ]
     }
   },
@@ -402,7 +384,7 @@ const SPEECH_DATA = [
     tagline: {
       ko: "BB레이저로 알려진 패키지 매출 창출 장비",
       en: "The BB laser known for creating package-based revenue",
-      zh: "以BB激光著称的套餐营收创造设备"
+      zh: "以BB激光著称的1927nm铥激光——连套餐营收都能创造的光疗设备"
     },
     competitors: {
       ko: ["모자이크", "Halo", "Fraxel Dual"],
@@ -412,10 +394,10 @@ const SPEECH_DATA = [
     table: {
       competitor: { ko: "프락셀", en: "Fraxel", zh: "Fraxel" },
       rows: [
-        { label: { ko: "다운타임",    en: "Downtime",     zh: "停工期"   }, wontech: { ko: "짧음",     en: "Short",     zh: "短"     }, rival: { ko: "상대적 김",  en: "Longer",    zh: "相对长"  } },
-        { label: { ko: "소모품",      en: "Consumables",  zh: "耗材"    }, wontech: { ko: "없음",     en: "None",      zh: "无"     }, rival: { ko: "있음",      en: "Required",  zh: "有"      } },
-        { label: { ko: "드럭딜리버리", en: "Drug delivery", zh: "药物导入" }, wontech: { ko: "강점",    en: "Strength",  zh: "优势"   }, rival: { ko: "보통",      en: "Standard",  zh: "一般"    } },
-        { label: { ko: "환자인지도",  en: "Patient awareness", zh: "患者认知度" }, wontech: { ko: "BB레이저", en: "BB Laser", zh: "BB激光" }, rival: { ko: "프락셀",   en: "Fraxel",    zh: "Fraxel"  } }
+        { label: { ko: "다운타임",    en: "Downtime",     zh: "停工期"   }, wontech: { ko: "짧음",     en: "Short",     zh: "短<span class='tbl-note'>保留角质层</span>" }, rival: { ko: "상대적 김",  en: "Longer",    zh: "相对长<span class='tbl-note'>恢复负担↑</span>" } },
+        { label: { ko: "소모품",      en: "Consumables",  zh: "耗材"    }, wontech: { ko: "없음",     en: "None",      zh: "无<span class='tbl-note'>节省运营成本</span>" }, rival: { ko: "있음",      en: "Required",  zh: "有<span class='tbl-note'>消耗性成本</span>" } },
+        { label: { ko: "드럭딜리버리", en: "Drug delivery", zh: "药物导入" }, wontech: { ko: "강점",    en: "Strength",  zh: "优势<span class='tbl-note'>安瓿吸收率↑</span>" }, rival: { ko: "보통",      en: "Standard",  zh: "一般<span class='tbl-note'>额外收益有限</span>" } },
+        { label: { ko: "환자인지도",  en: "Patient awareness", zh: "患者认知度" }, wontech: { ko: "BB레이저", en: "BB Laser", zh: "BB激光<span class='tbl-note'>咨询转化率↑</span>" }, rival: { ko: "프락셀",   en: "Fraxel",    zh: "Fraxel<span class='tbl-note'>同级认知度</span>" } }
       ]
     },
     speech: {
@@ -432,10 +414,8 @@ const SPEECH_DATA = [
         { closing: true, text: "Without the consumable costs of competing fractional devices, simultaneously achieve BB laser patient acquisition, ampoule revenue, and maximized complex package pricing." }
       ],
       zh: [
-        { text: "LAVIEEN是**1927nm铥激光波长选择性作用于水分的BB激光**。在保留角质层的同时，仅向表皮和真皮上层传导热能，与CO2相比停工期更短，皮肤屏障损伤最小。" },
-        { text: "以**'无需BB霜的全效激光'**为概念，患者认知度高，咨询转化率良好。" },
-        { text: "核心优势在于**治疗后的药物导入效果**。MTZ形成后涂抹EGF·FGF·PDRN·氨甲环酸等安瓿，吸收率显著提升，可通过**安瓿销售创造额外营收结构**。" },
-        { closing: true, text: "无需竞品分段设备的耗材成本，同步实现BB激光客流引入、安瓿营收和复合套餐单价最大化。" }
+        { closing: true, text: "1927nm铥激光波长选择性作用于水分的BB激光——**保留角质层，仅向表皮·真皮上层传导热能**，停工期与屏障损伤均降至最低。" },
+        { text: "术后EGF·FGF·PDRN安瓿药物导入带来**额外收益**——同步抓住BB激光客流·安瓿营收·复合套餐单价的套餐型平台。" }
       ]
     }
   },
@@ -454,11 +434,11 @@ const SPEECH_DATA = [
       zh: ["GentleMax Pro", "Apogee Plus", "Clarity II"]
     },
     table: {
-      competitor: { ko: "젠틀맥스", en: "GentleMax", zh: "GentleMax" },
+      competitor: { ko: "젠틀맥스", en: "GentleMax", zh: "GentleMax Pro" },
       rows: [
-        { label: { ko: "파장",   en: "Wavelength",  zh: "波长"   }, wontech: { ko: "755+1064 동시조사", en: "755+1064 simultaneous", zh: "755+1064同时照射" }, rival: { ko: "개별조사",  en: "Sequential only", zh: "单独照射"  } },
-        { label: { ko: "냉각",   en: "Cooling",     zh: "冷却"   }, wontech: { ko: "파장별 독립냉각",   en: "Independent per wavelength", zh: "各波长独立冷却" }, rival: { ko: "DCD 냉각", en: "DCD cooling",     zh: "DCD冷却"  } },
-        { label: { ko: "활용도", en: "Use cases",   zh: "用途"   }, wontech: { ko: "제모+색소+혈관",     en: "Hair+pigment+vascular",  zh: "脱毛+色素+血管"  }, rival: { ko: "제모 중심", en: "Hair removal focus", zh: "以脱毛为主" } },
+        { label: { ko: "파장",   en: "Wavelength",  zh: "波长"   }, wontech: { ko: "755+1064 동시조사", en: "755+1064 simultaneous", zh: "755+1064<span class='tbl-note'>同时照射</span>" }, rival: { ko: "개별조사",  en: "Sequential only", zh: "单独照射<span class='tbl-note'>不支持独立波长</span>"  } },
+        { label: { ko: "냉각",   en: "Cooling",     zh: "冷却"   }, wontech: { ko: "파장별 독립냉각",   en: "Independent per wavelength", zh: "各波长独立冷却<span class='tbl-note'>输出稳定性↑</span>" }, rival: { ko: "DCD 냉각", en: "DCD cooling",     zh: "DCD冷却<span class='tbl-note'>消耗性喷雾</span>"  } },
+        { label: { ko: "활용도", en: "Use cases",   zh: "用途"   }, wontech: { ko: "제모+색소+혈관",     en: "Hair+pigment+vascular",  zh: "脱毛+色素+血管<span class='tbl-note'>多重适应症</span>"  }, rival: { ko: "제모 중심", en: "Hair removal focus", zh: "以脱毛为主<span class='tbl-note'>单一适应症</span>" } },
         { label: { ko: "A/S",   en: "After-sales",  zh: "售后"   }, wontech: { ko: "국내 즉시 대응",     en: "Immediate (KR)",         zh: "国内即时响应"    }, rival: { ko: "수입 지연", en: "Import delay",    zh: "进口延迟"  } }
       ]
     },
@@ -476,10 +456,8 @@ const SPEECH_DATA = [
         { closing: true, text: "GentleMax Pro fires each wavelength in sequence, but SANDRO DUAL irradiates 755nm + 1064nm simultaneously — less time, better efficacy. Independent per-wavelength cooling ensures output stability, covering broader indications at less than half the GentleMax Pro price." }
       ],
       zh: [
-        { text: "SANDRO DUAL是**将755nm亚历山大和1064nm Nd:YAG双波长整合于单一平台**的多功能激光设备。" },
-        { text: "大多数竞品双波长设备仅支持顺序使用，而**SANDRO DUAL通过混合模式实现双波长同时照射**，缩短治疗时间，最大化治疗效率。" },
-        { text: "各波长独立冷却系统（SCS）确保输出稳定性，一台设备即可**覆盖脱毛、色素、血管病变及嫩肤**，设备投资效率极高。" },
-        { closing: true, text: "GentleMax Pro顺序照射两种波长，而SANDRO DUAL同时照射755nm + 1064nm——治疗时间更短，效率更高。各波长独立冷却保证输出稳定，以不足GentleMax Pro一半的价格覆盖更广泛的适应症。" }
+        { closing: true, text: "GentleMax Pro顺序照射两种波长，而SANDRO DUAL**同时照射755nm+1064nm**——治疗更快，疗效更强。" },
+        { text: "以脱毛·色素·血管三大适应症拓宽诊室收益，并以**不足GentleMax Pro一半的价格**降低引进负担。" }
       ]
     }
   }
