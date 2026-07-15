@@ -509,12 +509,12 @@ function buildDeviceGrid() {
       <span class="device-card-name">${d.name}</span>
       <span class="device-card-tag">${d.tagline[lang] || d.tagline.ko}</span>
     </button>
-  `).join("") + `
+  `).join("") + (window.HIDE_CLOSING ? "" : `
     <button class="device-card device-card--closing" data-id="closing" type="button" style="--card-color:#ff5a0a">
       <span class="device-card-name">${(TRANSLATIONS[lang] || TRANSLATIONS.ko).sales_closing_name}</span>
       <span class="device-card-tag">${(TRANSLATIONS[lang] || TRANSLATIONS.ko).sales_closing_tag}</span>
     </button>
-  `;
+  `);
 
   grid.querySelectorAll(".device-card").forEach((btn) => {
     btn.addEventListener("click", () => showDetail(btn.dataset.id));

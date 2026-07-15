@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wontech Sales Speech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=12">
+  <meta name="theme-color" content="#080c15">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Sales Speech">
+  <link rel="apple-touch-icon" href="../icons/icon-192.png">
+  <style>
+    /* 언어 전환 (세일즈 스피치 전용) */
+    .lang-sw{display:flex;gap:6px;align-items:center}
+    .lang-sw button{
+      border:1px solid rgba(255,255,255,.22);background:transparent;color:#c9d4e5;
+      font:600 12px/1 Manrope,"Noto Sans KR",sans-serif;letter-spacing:.02em;
+      padding:7px 11px;border-radius:999px;cursor:pointer;transition:all .15s;
+    }
+    .lang-sw button:hover{border-color:rgba(255,255,255,.45);color:#fff}
+    .lang-sw button.is-active{background:#fff;border-color:#fff;color:#0b1220}
+    @media (max-width:420px){ .lang-sw button{padding:6px 9px;font-size:11px} }
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="brand-row" aria-label="Wontech Brand">
+        <img class="brand-logo" src="../KakaoTalk_20260413_161622234_01.png" alt="Wontech Logo">
+        <p class="hero-title" data-i18n="sales_title">Sales Speech</p>
+      </div>
+      <nav class="lang-sw" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+        <button type="button" data-lang="ko">한국어</button>
+      </nav>
+    </header>
+
+    <section class="panel-wrap">
+      <article class="panel is-active" id="panel-speech">
+        <div id="speech-grid-view">
+          <div class="panel-header">
+            <h2 data-i18n="sales_title">Sales Speech</h2>
+            <p class="sub" data-i18n="sales_sub">Select a device to view competitor comparison and sales pitch.</p>
+          </div>
+          <div class="device-grid" id="device-grid"></div>
+        </div>
+        <div id="speech-detail-view" class="hidden">
+          <button class="back-btn" id="back-btn" type="button" data-i18n="sales_back">← Device List</button>
+          <div id="speech-detail-content"></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    /* 딜러 배포용: 세일즈 스피치 전용 · 클로징(국내 전용) 제외 */
+    window.HIDE_CLOSING = true;
+    window.FIXED_LANG = null;
+  </script>
+  <script src="../lang.js?v=1"></script>
+  <script src="../speech.js?v=5"></script>
+  <script>
+  (function(){
+    var SUPPORTED = ["en","zh","ko"];
+    var KEY = "wt_speech_lang";
+
+    function pickInitialLang(){
+      try{
+        var q = new URLSearchParams(location.search).get("lang");
+        if(q && SUPPORTED.indexOf(q)>=0) return q;
+        var saved = localStorage.getItem(KEY);
+        if(saved && SUPPORTED.indexOf(saved)>=0) return saved;
+      }catch(e){}
+      var nav = (navigator.language||"en").toLowerCase();
+      if(nav.indexOf("zh")===0) return "zh";
+      if(nav.indexOf("ko")===0) return "ko";
+      return "en";
+    }
+
+    function applyI18n(){
+      var lang = window.CURRENT_LANG;
+      var T = TRANSLATIONS[lang] || TRANSLATIONS.en;
+      document.querySelectorAll("[data-i18n]").forEach(function(el){
+        var v = T[el.dataset.i18n];
+        if(v) el.textContent = v;
+      });
+      document.documentElement.lang = (lang==="zh" ? "zh-CN" : lang);
+      document.title = (T.sales_title || "Sales Speech") + " · Wontech";
+    }
+
+    function markActive(){
+      document.querySelectorAll(".lang-sw button").forEach(function(b){
+        b.classList.toggle("is-active", b.dataset.lang === window.CURRENT_LANG);
+      });
+    }
+
+    function setLang(lang, rerender){
+      window.CURRENT_LANG = lang;
+      try{ localStorage.setItem(KEY, lang); }catch(e){}
+      applyI18n();
+      markActive();
+      if(rerender){
+        // 상세 열려 있으면 목록으로 복귀 후 새 언어로 재구성
+        var dv = document.getElementById("speech-detail-view");
+        var gv = document.getElementById("speech-grid-view");
+        if(dv && !dv.classList.contains("hidden")){
+          dv.classList.add("hidden"); gv.classList.remove("hidden");
+        }
+        buildDeviceGrid();
+      }
+    }
+
+    document.querySelectorAll(".lang-sw button").forEach(function(b){
+      b.addEventListener("click", function(){ setLang(b.dataset.lang, true); });
+    });
+
+    setLang(pickInitialLang(), false);
+    initSpeech();
+  })();
+  </script>
+</body>
+</html>
